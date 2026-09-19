@@ -73,7 +73,7 @@ Defina brevemente:
 
 ### A. Montaje de Tratamientos ($n=3$ cajas por grupo)
 
-1. Seleccione 225 semillas sanas de tamaño y peso uniforme (25 semillas por caja de Petri).
+1. Seleccione 90 semillas sanas de tamaño y peso uniforme (10 semillas por caja de Petri).
 2. Prepare 9 cajas de Petri con papel filtro en el fondo y distribuya los tratamientos:
    - **T1 (Control - Luz / Agua Destilada):** 3 cajas de Petri humedecidas con 5 mL de agua destilada, expuestas a fotoperíodo normal.
    - **T2 (Estrés Salino - NaCl 150 mM):** 3 cajas de Petri humedecidas con 5 mL de solución de NaCl 150 mM bajo fotoperíodo normal.
