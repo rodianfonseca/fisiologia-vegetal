@@ -1,0 +1,649 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  10pt,
+  letterpaper,
+  twocolumn]{article}
+\usepackage{xcolor}
+\usepackage[top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Fira Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Fira Sans}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\renewcommand{\arraystretch}{1.4}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Práctica No.~6 -- Nutrición Mineral},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\vspace{-1.5em}{\Huge \textbf{Práctica No.~6 -- Nutrición
+Mineral}}\vspace{-1.5em}}
+\date{}
+\begin{document}
+\maketitle
+
+
+\setstretch{1.2}
+\textbf{Fecha}: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+\textbf{Nombre:} \hrulefill
+
+\textbf{Objetivos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Comparar el crecimiento y desarrollo de plántulas cultivadas en
+  condiciones de nutrición completa frente a aquellas sometidas a
+  carencias de nutrientes.
+\item
+  Observar e identificar los síntomas fisiológicos de deficiencia que
+  presentan las plantas cultivadas sin el aporte de elementos minerales
+  esenciales.
+\end{itemize}
+
+\subsection{1. Materiales}\label{materiales}
+
+\begin{itemize}
+\tightlist
+\item
+  Plántulas o semillas germinadas de frijol (\emph{Phaseolus vulgaris})
+  o maíz (\emph{Zea mays})
+\item
+  6 vasos plásticos o macetas pequeñas
+\item
+  Sustrato inerte (vermiculita)
+\item
+  Agua para riego (agua corriente almacenada en recipiente abierto)
+\item
+  Solución nutritiva (fertilizante Triple 15)
+\item
+  Papel absorbente o papel filtro
+\item
+  Regla graduada o papel milimetrado
+\item
+  Kit de disección
+\end{itemize}
+
+\subsection{2. Aspectos Teóricos e
+Introducción}\label{aspectos-teuxf3ricos-e-introducciuxf3n}
+
+La nutrición mineral es fundamental para el crecimiento, desarrollo y
+rendimiento fisiológico de las plantas. Los nutrientes minerales se
+dividen en \textbf{macronutrientes} (como nitrógeno, fósforo y potasio),
+requeridos en grandes cantidades, y \textbf{micronutrientes} (como
+hierro, zinc y cobre), necesarios en menores concentraciones pero
+igualmente vitales. La deficiencia o exceso de estos elementos altera
+procesos metabólicos esenciales (fotosíntesis, síntesis de proteínas y
+clorofila) y se manifiesta visualmente mediante clorosis, necrosis o
+enanismo.
+
+Defina brevemente los siguientes conceptos:
+
+\subsubsection{1. Macronutrientes vs.~Micronutrientes (funciones
+principales):}\label{macronutrientes-vs.-micronutrientes-funciones-principales}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{2. Síntomas de deficiencia nutricional (Clorosis,
+Necrosis,
+Enanismo):}\label{suxedntomas-de-deficiencia-nutricional-clorosis-necrosis-enanismo}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{3. Sustrato inerte y su importancia en ensayos
+nutricionales:}\label{sustrato-inerte-y-su-importancia-en-ensayos-nutricionales}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{3. Procedimiento
+Experimental}\label{procedimiento-experimental}
+
+\subsubsection{A. Montaje e Inicio del Ensayo (Día 1 a Día
+7)}\label{a.-montaje-e-inicio-del-ensayo-duxeda-1-a-duxeda-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Día 1:} Deje las semillas de fríjol o maíz en agua durante 24
+  horas.
+\item
+  Siembre tres semillas por maceta en el sustrato inerte (vermiculita) y
+  riegue con el agua para riego.
+\item
+  \textbf{Día 7:} Aplique los primeros tratamientos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Macetas 1, 2 y 3 (Tratamiento Nutritivo):} 10 mL de solución
+    nutritiva cada una.
+  \item
+    \textbf{Macetas 4, 5 y 6 (Control Carencial):} 10 mL de agua de
+    riego cada una.
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}
+  % Esquema de Macetas
+  \foreach \x/\txt in {0/M1 (Nut), 1.2/M2 (Nut), 2.4/M3 (Nut), 4.0/M4 (Ctrl), 5.2/M5 (Ctrl), 6.4/M6 (Ctrl)} {
+    \draw[thick, fill=gray!10] (\x,0) -- (\x+0.2,-0.8) -- (\x+0.8,-0.8) -- (\x+1,0) -- cycle;
+    \node[scale=0.6] at (\x+0.5,-0.4) {\txt};
+  }
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{B. Seguimiento y Mantenimiento (Día 8 a Día
+30)}\label{b.-seguimiento-y-mantenimiento-duxeda-8-a-duxeda-30}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Mantenga las macetas bajo condiciones ambientales similares.
+\item
+  Riegue con agua de riego a medida que el sustrato se seque (se
+  recomienda regar en horas de la tarde).
+\item
+  Cada 7 días registre la longitud del tallo, número de hojas y síntomas
+  cualitativos de carencia.
+\item
+  \textbf{Día 23:} Aplique nuevamente 10 mL de solución nutritiva a las
+  macetas 1, 2 y 3 y 10 mL de agua de riego a las macetas 4, 5 y 6.
+\item
+  \textbf{Día 30:} Lleve las plantas al laboratorio y extraigalas
+  cuidadosamente sin dañar el sistema radicular para las mediciones
+  finales.
+\item
+  Para cada tratamiento (\(n=9\) plántulas), calcule el
+  \textbf{Promedio} (\(\bar{x}\)) y la \textbf{Desviación Estándar}
+  (\(s\)):
+\end{enumerate}
+
+\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}\]
+
+\subsubsection{Tabla 1. Seguimiento Temporal Parcial (Longitud Vástago
+cm / N°
+Hojas)}\label{tabla-1.-seguimiento-temporal-parcial-longitud-vuxe1stago-cm-n-hojas}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c}
+\hline
+\textbf{Maceta} & \textbf{Sem.} & \textbf{Día 7 (L | H)} & \textbf{Día 14 (L | H)} & \textbf{Día 21 (L | H)} & \textbf{Día 30 (L | H)} \\
+\hline
+ & A & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+M1 (Nut) & B & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+ & C & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+\hline
+ & A & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+M2 (Nut) & B & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+ & C & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+\hline
+ & A & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+M3 (Nut) & B & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+ & C & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+\hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$) Nut}} & & & & \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$) Nut}} & & & & \\
+\hline\hline
+ & A & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+M4 (Ctrl) & B & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+ & C & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+\hline
+ & A & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+M5 (Ctrl) & B & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+ & C & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+\hline
+ & A & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+M6 (Ctrl) & B & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+ & C & \quad | \quad & \quad | \quad & \quad | \quad & \quad | \quad \\
+\hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$) Ctrl}} & & & & \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$) Ctrl}} & & & & \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados parciales obtenidos durante la fase
+experimental:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{4. Registro de Resultados (Día
+30)}\label{registro-de-resultados-duxeda-30}
+
+Determine para cada planta la longitud de raíz y vástago (cm), el peso
+fresco de raíz y vástago (g) y el número de hojas. Anote los cambios
+cualitativos observados (coloración, morfología).
+
+\subsubsection{Tabla 2. Mediciones Finales Destructivas (Día
+30)}\label{tabla-2.-mediciones-finales-destructivas-duxeda-30}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|p{7em}}
+\hline
+\textbf{Maceta} & \textbf{Sem.} & \textbf{L. Raíz (cm)} & \textbf{P.F. Raíz (g)} & \textbf{P.F. Vást. (g)} & \textbf{Síntomas / Observaciones} \\
+\hline
+ & A & & & & \\
+M1 (Nut) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M2 (Nut) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M3 (Nut) & B & & & & \\
+ & C & & & & \\
+\hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$) Nut}} & & & & \multicolumn{1}{c}{---} \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$) Nut}} & & & & \multicolumn{1}{c}{---} \\
+\hline\hline
+ & A & & & & \\
+M4 (Ctrl) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M5 (Ctrl) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M6 (Ctrl) & B & & & & \\
+ & C & & & & \\
+\hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$) Ctrl}} & & & & \multicolumn{1}{c}{---} \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$) Ctrl}} & & & & \multicolumn{1}{c}{---} \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados finales:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{5. Representación
+Gráfica}\label{representaciuxf3n-gruxe1fica}
+
+\subsubsection{Gráfica 1: Cinética de Crecimiento
+Temporal}\label{gruxe1fica-1-cinuxe9tica-de-crecimiento-temporal}
+
+Represente la cinética temporal de la longitud del vástago usando puntos
+(promedio por tratamiento) con barras de error (desviación estándar) y
+líneas.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % Grid ggplot2 theme_bw style
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X (Tiempo)
+  \node[below, font=\tiny] at (1.4,0) {Día 7};
+  \node[below, font=\tiny] at (2.8,0) {Día 14};
+  \node[below, font=\tiny] at (4.2,0) {Día 21};
+  \node[below, font=\tiny] at (5.6,0) {Día 30};
+  \node[below=8pt, font=\small] at (3.25,0) {\textbf{Tiempo (Días)}};
+  
+  % Eje Y (Longitud)
+  \node[rotate=90, above=10pt, font=\small] at (0,2.25) {\textbf{Longitud Vástago (cm)}};
+  
+  % Convención de Leyenda
+  \draw[fill=white, draw=gray] (0.2,3.3) rectangle (2.4,4.3);
+  \draw[thick, blue] (0.3,4.0) -- (0.7,4.0); \node[right, font=\tiny] at (0.7,4.0) {Nutritivo};
+  \draw[thick, red, dashed] (0.3,3.6) -- (0.7,3.6); \node[right, font=\tiny] at (0.7,3.6) {Control};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados observados:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{Gráfica 2: Biomasa Fresca
+Final}\label{gruxe1fica-2-biomasa-fresca-final}
+
+Trace un gráfico de cajas y bigotes (\emph{boxplot}) para el Peso Fresco
+del Vástago por tratamiento.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % Grid ggplot2 theme_bw style
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X (Tratamientos)
+  \node[below, font=\small] at (2.1,0) {\textbf{Nutritivo}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Control}};
+  \node[below=12pt, font=\small] at (3.25,0) {\textbf{Tratamiento Nutricional}};
+  
+  % Eje Y (Peso Fresco)
+  \node[rotate=90, above=10pt, font=\small] at (0,2.25) {\textbf{Peso Fresco Vástago (g)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados observados:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{6. Actividades
+Complementarias}\label{actividades-complementarias}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿De qué manera influyen las condiciones del suelo (pH, textura y
+  composición orgánica) en la disponibilidad y absorción de nutrientes
+  minerales, y qué estrategias pueden emplear las plantas para optimizar
+  su nutrición en suelos desfavorables?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Analice el papel de los micronutrientes en la regulación de procesos
+  metabólicos esenciales (como la fotosíntesis y la síntesis de
+  clorofila) y explique cómo se pueden diagnosticar y corregir sus
+  deficiencias en un cultivo agrícola.
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ¿Cómo interactúa la nutrición mineral con la actividad de la
+  microbiota del suelo y de qué manera esta sinergia contribuye a la
+  salud y productividad de las plantas?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{7. Conclusión}\label{conclusiuxf3n}
+
+Compare el crecimiento y desarrollo de las plántulas entre tratamientos
+e identifique las implicaciones agronómicas de los resultados obtenidos:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{8. Bibliografía}\label{bibliografuxeda}
+
+\begin{itemize}
+\item
+  Azcón-Bieto, J., \& Talón, M. (2008). \emph{Fundamentos de Fisiología
+  Vegetal} (2.ª ed.). McGraw-Hill Interamericana.
+\item
+  Melgarejo, L. M. (Ed.). (2010). \emph{Experimentos en fisiología
+  vegetal}. Universidad Nacional de Colombia.
+\item
+  Taiz, L., \& Zeiger, E. (2002). \emph{Plant Physiology} (3rd ed.).
+  Sinauer Associates Ltd.
+\end{itemize}
+
+
+
+
+\end{document}

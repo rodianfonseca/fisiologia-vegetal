@@ -1,0 +1,721 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  10pt,
+  letterpaper,
+  twocolumn]{article}
+\usepackage{xcolor}
+\usepackage[top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Fira Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Fira Sans}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\renewcommand{\arraystretch}{1.4}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Práctica 3 -- Transporte a través del Xilema},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\vspace{-1.5em}{\Huge \textbf{Práctica 3 -- Transporte a través
+del Xilema}}\vspace{-1.5em}}
+\date{}
+\begin{document}
+\maketitle
+
+
+\setstretch{1.2}
+\textbf{Fecha}: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+\textbf{Nombre:} \hrulefill
+
+\textbf{Objetivos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Demostrar el transporte de agua y solutos a través de los elementos
+  conductores del xilema.
+\item
+  Evaluar el efecto de la tasa de transpiración y la cavitación/embolia
+  en la distancia total de ascenso xilemático.
+\end{itemize}
+
+\subsection{1. Materiales}\label{materiales}
+
+\begin{itemize}
+\tightlist
+\item
+  Tallos o pecíolos frescos con hojas de apio (\emph{Apium graveolens}).
+\item
+  Kit de disección.
+\item
+  Regla graduada.
+\item
+  Bolsas plásticas transparentes.
+\end{itemize}
+
+\subsection{2. Aspectos Teóricos}\label{aspectos-teuxf3ricos}
+
+El transporte de agua a larga distancia en las plantas ocurre a través
+del \textbf{xilema} impulsado principalmente por la \textbf{Teoría de la
+Cohesión-Tensión}. La pérdida de agua por transpiración en los estomas
+genera un potencial hídrico negativo (\(\Psi_w\)) en el mesófilo,
+creando una fuerza de tensión que ``jala'' la columna continua de agua
+desde las raíces hasta las hojas gracias a las propiedades de cohesión y
+adhesión de las moléculas de agua.
+
+Defina brevemente:
+
+\subsubsection{\texorpdfstring{\textbf{1. Teoría de la Cohesión-Tensión
+y gradiente de
+\(\Psi_w\):}}{1. Teoría de la Cohesión-Tensión y gradiente de \textbackslash Psi\_w:}}\label{teoruxeda-de-la-cohesiuxf3n-tensiuxf3n-y-gradiente-de-psi_w}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{\texorpdfstring{\textbf{2. Diferencias entre Traqueidas y
+Elementos del
+Vaso:}}{2. Diferencias entre Traqueidas y Elementos del Vaso:}}\label{diferencias-entre-traqueidas-y-elementos-del-vaso}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{\texorpdfstring{\textbf{3. Cavitación y Embolia
+Xilemática (Causas y
+efectos):}}{3. Cavitación y Embolia Xilemática (Causas y efectos):}}\label{cavitaciuxf3n-y-embolia-xilemuxe1tica-causas-y-efectos}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{3. Procedimiento
+Experimental}\label{procedimiento-experimental}
+
+\subsubsection{A. Tasa de Ascenso y Transpiración (Tratamientos 1 y
+2)}\label{a.-tasa-de-ascenso-y-transpiraciuxf3n-tratamientos-1-y-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Seleccione 6 tallos/pecíolos de tamaño homogéneo con follaje.
+\item
+  Realice un corte biselado bajo el agua para evitar cavitación.
+\item
+  Coloque los tallos en tubos con solución de colorante y deje actuar el
+  sistema durante \textbf{60 minutos} ininterrumpidos bajo dos
+  condiciones ambientales:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Tratamiento 1 (Alta Transpiración - Luz / Aire):} 3 tallos
+    (Réplicas A, B, C) expuestos a luz directa y flujo de aire.
+  \item
+    \textbf{Tratamiento 2 (Baja Transpiración - Oscuridad / Humedad):} 3
+    tallos (Réplicas A, B, C) cubiertos con bolsa plástica en la
+    oscuridad.
+  \end{itemize}
+\end{enumerate}
+
+\subsubsection{B. Efecto del Bloqueo Vascular y Cavitación (Tratamiento
+3)}\label{b.-efecto-del-bloqueo-vascular-y-cavitaciuxf3n-tratamiento-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  En 3 tallos adicionales, induzca cavitación cortándolos al aire y
+  dejándolos expuestos 10 min antes de sumergir en colorante. Mantenga
+  el tratamiento durante \textbf{60 minutos}.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+  % ==========================================
+  % TRATAMIENTO 1: Alta Transpiración
+  % ==========================================
+  \begin{scope}[shift={(0,0)}]
+    % Recipiente y colorante
+    \draw[thick] (0, 1.3) -- (0, 0.1) arc (180:360:0.5) -- (1.0, 1.3);
+    \fill[blue!50!black, opacity=0.6] (0.02, 0.1) arc (180:360:0.48) -- (0.98, 0.55) -- (0.02, 0.55) -- cycle;
+    \draw[blue!70!black, thick] (0.02, 0.55) -- (0.98, 0.55);
+
+    % 3 Tallos de apio (A, B, C)
+    \draw[line width=1.5pt, green!40!black] (0.25, 0.2) .. controls (0.2, 1.2) .. (0.15, 2.0);
+    \draw[line width=1.5pt, green!40!black] (0.50, 0.2) -- (0.50, 2.2);
+    \draw[line width=1.5pt, green!40!black] (0.75, 0.2) .. controls (0.8, 1.2) .. (0.85, 2.0);
+
+    % Hojas / Follaje
+    \fill[green!50!black] (0.15, 2.0) circle (3.5pt); \fill[green!60!black] (0.05, 2.1) circle (2.5pt); \fill[green!55!black] (0.22, 2.15) circle (2.5pt);
+    \fill[green!50!black] (0.50, 2.2) circle (4.0pt); \fill[green!60!black] (0.38, 2.3) circle (3.0pt); \fill[green!55!black] (0.62, 2.3) circle (3.0pt);
+    \fill[green!50!black] (0.85, 2.0) circle (3.5pt); \fill[green!60!black] (0.78, 2.15) circle (2.5pt); \fill[green!55!black] (0.95, 2.1) circle (2.5pt);
+
+    % Etiquetas
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0.5, -0.6) {T1: Alta Transp.};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0.5, -0.9) {Luz / Aire ($n=3$)};
+  \end{scope}
+
+  % ==========================================
+  % TRATAMIENTO 2: Baja Transpiración
+  % ==========================================
+  \begin{scope}[shift={(2.6,0)}]
+    % Recipiente y colorante
+    \draw[thick] (0, 1.3) -- (0, 0.1) arc (180:360:0.5) -- (1.0, 1.3);
+    \fill[blue!50!black, opacity=0.6] (0.02, 0.1) arc (180:360:0.48) -- (0.98, 0.55) -- (0.02, 0.55) -- cycle;
+    \draw[blue!70!black, thick] (0.02, 0.55) -- (0.98, 0.55);
+
+    % 3 Tallos de apio (A, B, C)
+    \draw[line width=1.5pt, green!40!black] (0.25, 0.2) .. controls (0.2, 1.2) .. (0.15, 2.0);
+    \draw[line width=1.5pt, green!40!black] (0.50, 0.2) -- (0.50, 2.2);
+    \draw[line width=1.5pt, green!40!black] (0.75, 0.2) .. controls (0.8, 1.2) .. (0.85, 2.0);
+
+    % Hojas / Follaje
+    \fill[green!50!black] (0.15, 2.0) circle (3.5pt); \fill[green!60!black] (0.05, 2.1) circle (2.5pt); \fill[green!55!black] (0.22, 2.15) circle (2.5pt);
+    \fill[green!50!black] (0.50, 2.2) circle (4.0pt); \fill[green!60!black] (0.38, 2.3) circle (3.0pt); \fill[green!55!black] (0.62, 2.3) circle (3.0pt);
+    \fill[green!50!black] (0.85, 2.0) circle (3.5pt); \fill[green!60!black] (0.78, 2.15) circle (2.5pt); \fill[green!55!black] (0.95, 2.1) circle (2.5pt);
+
+    % Bolsa plástica envolvente
+    \draw[dashed, blue!70!black, fill=blue!10, fill opacity=0.35, rounded corners=4pt] 
+      (-0.15, 0.8) rectangle (1.15, 2.5);
+    \node[font=\fontsize{4.5}{5.5}\bfseries\selectfont, blue!80!black] at (0.5, 2.65) {Bolsa plástica};
+
+    % Etiquetas
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0.5, -0.6) {T2: Baja Transp.};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0.5, -0.9) {Bolsa ($n=3$)};
+  \end{scope}
+
+  % ==========================================
+  % TRATAMIENTO 3: Cavitación / Bloqueo
+  % ==========================================
+  \begin{scope}[shift={(5.2,0)}]
+    % Recipiente y colorante
+    \draw[thick] (0, 1.3) -- (0, 0.1) arc (180:360:0.5) -- (1.0, 1.3);
+    \fill[blue!50!black, opacity=0.6] (0.02, 0.1) arc (180:360:0.48) -- (0.98, 0.55) -- (0.02, 0.55) -- cycle;
+    \draw[blue!70!black, thick] (0.02, 0.55) -- (0.98, 0.55);
+
+    % 3 Tallos de apio (A, B, C)
+    \draw[line width=1.5pt, green!40!black] (0.25, 0.2) .. controls (0.2, 1.2) .. (0.15, 2.0);
+    \draw[line width=1.5pt, green!40!black] (0.50, 0.2) -- (0.50, 2.2);
+    \draw[line width=1.5pt, green!40!black] (0.75, 0.2) .. controls (0.8, 1.2) .. (0.85, 2.0);
+
+    % Bloqueo / Sello de vaselina en la base de los tallos
+    \fill[orange!90!black] (0.18, 0.25) rectangle (0.32, 0.40);
+    \fill[orange!90!black] (0.43, 0.25) rectangle (0.57, 0.40);
+    \fill[orange!90!black] (0.68, 0.25) rectangle (0.82, 0.40);
+
+    % Hojas / Follaje
+    \fill[green!50!black] (0.15, 2.0) circle (3.5pt); \fill[green!60!black] (0.05, 2.1) circle (2.5pt); \fill[green!55!black] (0.22, 2.15) circle (2.5pt);
+    \fill[green!50!black] (0.50, 2.2) circle (4.0pt); \fill[green!60!black] (0.38, 2.3) circle (3.0pt); \fill[green!55!black] (0.62, 2.3) circle (3.0pt);
+    \fill[green!50!black] (0.85, 2.0) circle (3.5pt); \fill[green!60!black] (0.78, 2.15) circle (2.5pt); \fill[green!55!black] (0.95, 2.1) circle (2.5pt);
+
+    % Etiquetas
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0.5, -0.6) {T3: Cavitación};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0.5, -0.9) {Luz / Aire ($n=3$)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{C. Medición y Cuantificación del Ascenso del
+Colorante}\label{c.-mediciuxf3n-y-cuantificaciuxf3n-del-ascenso-del-colorante}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Medición del ascenso del colorante:}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Coloque el pecíolo sobre una superficie plana y limpia.
+\item
+  Realice cortes transversales en el peciolo del apio cada 1 cm desde la
+  base.
+\item
+  Siga realizando cortes hasta que los haces del xilema no se observen
+  teñidos.
+\item
+  Determine la distancia recorrida por el colorante en los peciolos de
+  apio de cada tratamiento.
+\item
+  Calcule la velocidad promedio de ascenso al minuto 60
+  (\(v = \text{distancia}/60\text{ min}\)) y determine promedio
+  (\(\bar{x}\)) y desviación estándar (\(s\)) para cada grupo:
+\end{itemize}
+
+\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Análisis Anatómico (Corte Transversal):}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Realice cortes transversales muy delgados a 2 cm, 5 cm y 10 cm de la
+  base.
+\item
+  Monte en portaobjetos, observe al microscopio y determine si la
+  tinción es exclusiva del xilema o si hubo difusión al parénquima
+  adyacente.
+\end{itemize}
+
+\subsection{4. Registro de Resultados}\label{registro-de-resultados}
+
+\subsubsection{Tabla 1. Altura de Ascenso y
+Velocidad}\label{tabla-1.-altura-de-ascenso-y-velocidad}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|p{2em}|p{2em}|p{2em}|p{2em}|p{2em}}
+\hline
+ &  & \multicolumn{3}{c|}{\textbf{Réplicas}} & \textbf{Prom} & \textbf{DE} \\
+\textbf{Tratamiento} & \textbf{Variable} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{$\bar{x}$} & \textbf{$s$} \\
+\hline
+1. Alta Transp. & Altura & & & & & \\[1ex]
+\cline{2-7}
+ & Velocidad & & & & & \\[1ex]
+\hline
+2. Baja Transp. & Altura & & & & & \\[1ex]
+\cline{2-7}
+ & Velocidad & & & & & \\[1ex]
+\hline
+3. Cavitación  & Altura & & & & & \\[1ex]
+\cline{2-7}
+ & Velocidad & & & & & \\[1ex]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de la altura de ascenso y velocidad:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{Tabla 2. Observación Anatómica del Corte
+Transversal}\label{tabla-2.-observaciuxf3n-anatuxf3mica-del-corte-transversal}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Observación Microscópica / Disposición de Haces Teñidos} \\
+\hline
+1. Alta Transp. &  \\[20pt]
+\hline
+2. Baja Transp. & \\[20pt]
+\hline
+3. Cavitación & \\[20pt]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de la observación anatómica:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{5. Análisis Gráfico}\label{anuxe1lisis-gruxe1fico}
+
+Represente la altura final y velocidad de ascenso utilizando gráficas
+con puntos (promedio) y barras de error (desviación estándar) por
+tratamiento.
+
+\subsubsection{Gráfica 1: Altura Final de
+Ascenso}\label{gruxe1fica-1-altura-final-de-ascenso}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95]
+  % Grid ggplot2
+  \draw[gray!20, step=0.5cm] (0,0) grid (6,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6,4.0);
+  \draw[thick] (0,0) rectangle (6,4.0);
+  
+  % Eje X
+  \node[below, font=\tiny] at (1,0) {\textbf{Alta Transp.}};
+  \node[below, font=\tiny] at (3,0) {\textbf{Baja Transp.}};
+  \node[below, font=\tiny] at (5,0) {\textbf{Cavitación}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Altura de Ascenso (cm)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados observados:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{Gráfica 2: Velocidad de Ascenso
+Xilemático}\label{gruxe1fica-2-velocidad-de-ascenso-xilemuxe1tico}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95]
+  % Grid ggplot2
+  \draw[gray!20, step=0.5cm] (0,0) grid (6,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6,4.0);
+  \draw[thick] (0,0) rectangle (6,4.0);
+  
+  % Eje X
+  \node[below, font=\tiny] at (1,0) {\textbf{Alta Transp.}};
+  \node[below, font=\tiny] at (3,0) {\textbf{Baja Transp.}};
+  \node[below, font=\tiny] at (5,0) {\textbf{Cavitación}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Velocidad ($\text{cm/min}$)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados observados:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{6. Actividades
+Complementarias}\label{actividades-complementarias}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Explique el mecanismo anatómico y biofísico por el cual los cortes
+  realizados al aire sufren una reducción significativa en la tasa de
+  transporte xilemático.
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Por qué la coloración se restringe a los haces vasculares en el corte
+  transversal y no se difunde uniformemente por todo el tejido
+  parenquimático al finalizar el experimento?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ¿Qué mecanismos fisiológicos emplean las plantas para reparar o
+  recuperar la funcionalidad de los vasos cavitados?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{7. Conclusión}\label{conclusiuxf3n}
+
+Relacione los resultados cuantitativos con la tensión transpiratoria e
+interprete la importancia del xilema como vía principal de transporte
+hídrico:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{8. Bibliografía}\label{bibliografuxeda}
+
+\begin{itemize}
+\tightlist
+\item
+  Azcón-Bieto, J., \& Talón, M. (2008). \emph{Fundamentos de Fisiología
+  Vegetal} (2.ª ed.). McGraw-Hill.
+\item
+  Melgarejo, L. M. (Ed.). (2010). \emph{Experimentos en fisiología
+  vegetal}. Universidad Nacional de Colombia.
+\item
+  Taiz, L., \& Zeiger, E. (2002). \emph{Plant Physiology} (3rd ed.).
+  Sinauer Associates.
+\end{itemize}
+
+
+
+
+\end{document}

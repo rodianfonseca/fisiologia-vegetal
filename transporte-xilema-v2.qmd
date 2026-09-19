@@ -1,0 +1,419 @@
+---
+title: "Práctica 3 – Transporte a través del Xilema"
+lang: es
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    classoption: [twocolumn]
+    fontsize: 10pt
+    geometry: top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm
+    mainfont: "Fira Sans"
+    linestretch: 1.2
+    papersize: letter
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header:
+      text: |
+        \usepackage{tikz}
+        \usepackage{graphicx}
+        \usepackage{amsmath}
+        \renewcommand{\arraystretch}{1.4}
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+**Fecha**: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+**Nombre:** \hrulefill
+
+**Objetivos:** 
+
+- Demostrar el transporte de agua y solutos a través de los elementos conductores del xilema.
+- Evaluar el efecto de la tasa de transpiración y la cavitación/embolia en la distancia total de ascenso xilemático.
+
+## 1. Materiales
+
+- Tallos o pecíolos frescos con hojas de apio (*Apium graveolens*).
+- Kit de disección.
+- Regla graduada.
+- Bolsas plásticas transparentes.
+
+## 2. Aspectos Teóricos
+
+El transporte de agua a larga distancia en las plantas ocurre a través del **xilema** impulsado principalmente por la **Teoría de la Cohesión-Tensión**. La pérdida de agua por transpiración en los estomas genera un potencial hídrico negativo ($\Psi_w$) en el mesófilo, creando una fuerza de tensión que "jala" la columna continua de agua desde las raíces hasta las hojas gracias a las propiedades de cohesión y adhesión de las moléculas de agua.
+
+Defina brevemente:
+
+### **1. Teoría de la Cohesión-Tensión y gradiente de $\Psi_w$:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+### **2. Diferencias entre Traqueidas y Elementos del Vaso:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+### **3. Cavitación y Embolia Xilemática (Causas y efectos):**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 3. Procedimiento Experimental
+
+### A. Tasa de Ascenso y Transpiración (Tratamientos 1 y 2)
+
+1. Seleccione 6 tallos/pecíolos de tamaño homogéneo con follaje.
+2. Realice un corte biselado bajo el agua para evitar cavitación.
+3. Coloque los tallos en tubos con solución de colorante y deje actuar el sistema durante **60 minutos** ininterrumpidos bajo dos condiciones ambientales:
+   - **Tratamiento 1 (Alta Transpiración - Luz / Aire):** 3 tallos (Réplicas A, B, C) expuestos a luz directa y flujo de aire.
+   - **Tratamiento 2 (Baja Transpiración - Oscuridad / Humedad):** 3 tallos (Réplicas A, B, C) cubiertos con bolsa plástica en la oscuridad.
+
+### B. Efecto del Bloqueo Vascular y Cavitación (Tratamiento 3)
+
+1. En 3 tallos adicionales, induzca cavitación cortándolos al aire y dejándolos expuestos 10 min antes de sumergir en colorante. Mantenga el tratamiento durante **60 minutos**.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+  % ==========================================
+  % TRATAMIENTO 1: Alta Transpiración
+  % ==========================================
+  \begin{scope}[shift={(0,0)}]
+    % Recipiente y colorante
+    \draw[thick] (0, 1.3) -- (0, 0.1) arc (180:360:0.5) -- (1.0, 1.3);
+    \fill[blue!50!black, opacity=0.6] (0.02, 0.1) arc (180:360:0.48) -- (0.98, 0.55) -- (0.02, 0.55) -- cycle;
+    \draw[blue!70!black, thick] (0.02, 0.55) -- (0.98, 0.55);
+
+    % 3 Tallos de apio (A, B, C)
+    \draw[line width=1.5pt, green!40!black] (0.25, 0.2) .. controls (0.2, 1.2) .. (0.15, 2.0);
+    \draw[line width=1.5pt, green!40!black] (0.50, 0.2) -- (0.50, 2.2);
+    \draw[line width=1.5pt, green!40!black] (0.75, 0.2) .. controls (0.8, 1.2) .. (0.85, 2.0);
+
+    % Hojas / Follaje
+    \fill[green!50!black] (0.15, 2.0) circle (3.5pt); \fill[green!60!black] (0.05, 2.1) circle (2.5pt); \fill[green!55!black] (0.22, 2.15) circle (2.5pt);
+    \fill[green!50!black] (0.50, 2.2) circle (4.0pt); \fill[green!60!black] (0.38, 2.3) circle (3.0pt); \fill[green!55!black] (0.62, 2.3) circle (3.0pt);
+    \fill[green!50!black] (0.85, 2.0) circle (3.5pt); \fill[green!60!black] (0.78, 2.15) circle (2.5pt); \fill[green!55!black] (0.95, 2.1) circle (2.5pt);
+
+    % Etiquetas
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0.5, -0.6) {T1: Alta Transp.};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0.5, -0.9) {Luz / Aire ($n=3$)};
+  \end{scope}
+
+  % ==========================================
+  % TRATAMIENTO 2: Baja Transpiración
+  % ==========================================
+  \begin{scope}[shift={(2.6,0)}]
+    % Recipiente y colorante
+    \draw[thick] (0, 1.3) -- (0, 0.1) arc (180:360:0.5) -- (1.0, 1.3);
+    \fill[blue!50!black, opacity=0.6] (0.02, 0.1) arc (180:360:0.48) -- (0.98, 0.55) -- (0.02, 0.55) -- cycle;
+    \draw[blue!70!black, thick] (0.02, 0.55) -- (0.98, 0.55);
+
+    % 3 Tallos de apio (A, B, C)
+    \draw[line width=1.5pt, green!40!black] (0.25, 0.2) .. controls (0.2, 1.2) .. (0.15, 2.0);
+    \draw[line width=1.5pt, green!40!black] (0.50, 0.2) -- (0.50, 2.2);
+    \draw[line width=1.5pt, green!40!black] (0.75, 0.2) .. controls (0.8, 1.2) .. (0.85, 2.0);
+
+    % Hojas / Follaje
+    \fill[green!50!black] (0.15, 2.0) circle (3.5pt); \fill[green!60!black] (0.05, 2.1) circle (2.5pt); \fill[green!55!black] (0.22, 2.15) circle (2.5pt);
+    \fill[green!50!black] (0.50, 2.2) circle (4.0pt); \fill[green!60!black] (0.38, 2.3) circle (3.0pt); \fill[green!55!black] (0.62, 2.3) circle (3.0pt);
+    \fill[green!50!black] (0.85, 2.0) circle (3.5pt); \fill[green!60!black] (0.78, 2.15) circle (2.5pt); \fill[green!55!black] (0.95, 2.1) circle (2.5pt);
+
+    % Bolsa plástica envolvente
+    \draw[dashed, blue!70!black, fill=blue!10, fill opacity=0.35, rounded corners=4pt] 
+      (-0.15, 0.8) rectangle (1.15, 2.5);
+    \node[font=\fontsize{4.5}{5.5}\bfseries\selectfont, blue!80!black] at (0.5, 2.65) {Bolsa plástica};
+
+    % Etiquetas
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0.5, -0.6) {T2: Baja Transp.};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0.5, -0.9) {Bolsa ($n=3$)};
+  \end{scope}
+
+  % ==========================================
+  % TRATAMIENTO 3: Cavitación / Bloqueo
+  % ==========================================
+  \begin{scope}[shift={(5.2,0)}]
+    % Recipiente y colorante
+    \draw[thick] (0, 1.3) -- (0, 0.1) arc (180:360:0.5) -- (1.0, 1.3);
+    \fill[blue!50!black, opacity=0.6] (0.02, 0.1) arc (180:360:0.48) -- (0.98, 0.55) -- (0.02, 0.55) -- cycle;
+    \draw[blue!70!black, thick] (0.02, 0.55) -- (0.98, 0.55);
+
+    % 3 Tallos de apio (A, B, C)
+    \draw[line width=1.5pt, green!40!black] (0.25, 0.2) .. controls (0.2, 1.2) .. (0.15, 2.0);
+    \draw[line width=1.5pt, green!40!black] (0.50, 0.2) -- (0.50, 2.2);
+    \draw[line width=1.5pt, green!40!black] (0.75, 0.2) .. controls (0.8, 1.2) .. (0.85, 2.0);
+
+    % Bloqueo / Sello de vaselina en la base de los tallos
+    \fill[orange!90!black] (0.18, 0.25) rectangle (0.32, 0.40);
+    \fill[orange!90!black] (0.43, 0.25) rectangle (0.57, 0.40);
+    \fill[orange!90!black] (0.68, 0.25) rectangle (0.82, 0.40);
+
+    % Hojas / Follaje
+    \fill[green!50!black] (0.15, 2.0) circle (3.5pt); \fill[green!60!black] (0.05, 2.1) circle (2.5pt); \fill[green!55!black] (0.22, 2.15) circle (2.5pt);
+    \fill[green!50!black] (0.50, 2.2) circle (4.0pt); \fill[green!60!black] (0.38, 2.3) circle (3.0pt); \fill[green!55!black] (0.62, 2.3) circle (3.0pt);
+    \fill[green!50!black] (0.85, 2.0) circle (3.5pt); \fill[green!60!black] (0.78, 2.15) circle (2.5pt); \fill[green!55!black] (0.95, 2.1) circle (2.5pt);
+
+    % Etiquetas
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0.5, -0.6) {T3: Cavitación};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0.5, -0.9) {Luz / Aire ($n=3$)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+### C. Medición y Cuantificación del Ascenso del Colorante
+
+1. **Medición del ascenso del colorante:**
+  - Coloque el pecíolo sobre una superficie plana y limpia.
+  - Realice cortes transversales en el peciolo del apio cada 1 cm desde la base.
+  - Siga realizando cortes hasta que los haces del xilema no se observen teñidos.
+  - Determine la distancia recorrida por el colorante en los peciolos de apio de cada tratamiento.
+  - Calcule la velocidad promedio de ascenso al minuto 60 ($v = \text{distancia}/60\text{ min}$) y determine promedio ($\bar{x}$) y desviación estándar ($s$) para cada grupo:
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+
+
+2. **Análisis Anatómico (Corte Transversal):**
+  - Realice cortes transversales muy delgados a 2 cm, 5 cm y 10 cm de la base.
+  - Monte en portaobjetos, observe al microscopio y determine si la tinción es exclusiva del xilema o si hubo difusión al parénquima adyacente.
+
+## 4. Registro de Resultados
+
+### Tabla 1. Altura de Ascenso y Velocidad
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|p{2em}|p{2em}|p{2em}|p{2em}|p{2em}}
+\hline
+ &  & \multicolumn{3}{c|}{\textbf{Réplicas}} & \textbf{Prom} & \textbf{DE} \\
+\textbf{Tratamiento} & \textbf{Variable} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{$\bar{x}$} & \textbf{$s$} \\
+\hline
+1. Alta Transp. & Altura & & & & & \\[1ex]
+\cline{2-7}
+ & Velocidad & & & & & \\[1ex]
+\hline
+2. Baja Transp. & Altura & & & & & \\[1ex]
+\cline{2-7}
+ & Velocidad & & & & & \\[1ex]
+\hline
+3. Cavitación  & Altura & & & & & \\[1ex]
+\cline{2-7}
+ & Velocidad & & & & & \\[1ex]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de la altura de ascenso y velocidad:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+### Tabla 2. Observación Anatómica del Corte Transversal
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Observación Microscópica / Disposición de Haces Teñidos} \\
+\hline
+1. Alta Transp. &  \\[20pt]
+\hline
+2. Baja Transp. & \\[20pt]
+\hline
+3. Cavitación & \\[20pt]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de la observación anatómica:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 5. Análisis Gráfico
+
+Represente la altura final y velocidad de ascenso utilizando gráficas con puntos (promedio) y barras de error (desviación estándar) por tratamiento.
+
+### Gráfica 1: Altura Final de Ascenso
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95]
+  % Grid ggplot2
+  \draw[gray!20, step=0.5cm] (0,0) grid (6,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6,4.0);
+  \draw[thick] (0,0) rectangle (6,4.0);
+  
+  % Eje X
+  \node[below, font=\tiny] at (1,0) {\textbf{Alta Transp.}};
+  \node[below, font=\tiny] at (3,0) {\textbf{Baja Transp.}};
+  \node[below, font=\tiny] at (5,0) {\textbf{Cavitación}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Altura de Ascenso (cm)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados observados:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+### Gráfica 2: Velocidad de Ascenso Xilemático
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95]
+  % Grid ggplot2
+  \draw[gray!20, step=0.5cm] (0,0) grid (6,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6,4.0);
+  \draw[thick] (0,0) rectangle (6,4.0);
+  
+  % Eje X
+  \node[below, font=\tiny] at (1,0) {\textbf{Alta Transp.}};
+  \node[below, font=\tiny] at (3,0) {\textbf{Baja Transp.}};
+  \node[below, font=\tiny] at (5,0) {\textbf{Cavitación}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Velocidad ($\text{cm/min}$)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados observados:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 6. Actividades Complementarias
+
+1. Explique el mecanismo anatómico y biofísico por el cual los cortes realizados al aire sufren una reducción significativa en la tasa de transporte xilemático.
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+2. ¿Por qué la coloración se restringe a los haces vasculares en el corte transversal y no se difunde uniformemente por todo el tejido parenquimático al finalizar el experimento?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+3. ¿Qué mecanismos fisiológicos emplean las plantas para reparar o recuperar la funcionalidad de los vasos cavitados?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 7. Conclusión
+
+Relacione los resultados cuantitativos con la tensión transpiratoria e interprete la importancia del xilema como vía principal de transporte hídrico:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 8. Bibliografía
+
+- Azcón-Bieto, J., & Talón, M. (2008). *Fundamentos de Fisiología Vegetal* (2.ª ed.). McGraw-Hill.
+- Melgarejo, L. M. (Ed.). (2010). *Experimentos en fisiología vegetal*. Universidad Nacional de Colombia.
+- Taiz, L., & Zeiger, E. (2002). *Plant Physiology* (3rd ed.). Sinauer Associates.

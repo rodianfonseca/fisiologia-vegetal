@@ -1,0 +1,261 @@
+---
+title: "Práctica – Fisiología de la Germinación y Estrés Abiótico"
+lang: es
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    classoption: [twocolumn]
+    fontsize: 10pt
+    geometry: top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm
+    mainfont: "Fira Sans"
+    linestretch: 1.2
+    papersize: letter
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header:
+      text: |
+        \usepackage{tikz}
+        \usepackage{graphicx}
+        \usepackage{amsmath}
+        \renewcommand{\arraystretch}{1.4}
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+**Fecha**: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+**Nombre:** \hrulefill
+
+**Objetivos:** 
+
+- Evaluar la cinética de germinación y el efecto del potencial osmótico y la luz sobre la protrusión radicular.
+- Determinar cuantitativamente el Porcentaje Final de Germinación ($\%G$), el Tiempo Medio de Germinación ($TMG$) y la longitud de la radícula.
+
+
+## 1. Materiales
+
+- Semillas homogéneas (*Phaseolus vulgaris* / frijol o *Zea mays* / maíz).
+- Cajas de Petri esterilizadas y papel filtro (disco).
+- Soluciones de tratamiento: Agua destilada (Control), NaCl 150 mM (Estrés Salino) y solución en oscuridad/cubierta de aluminio.
+- Regla graduada milimetrada, bisturí y pinzas de precisión.
+- Balanza analítica ($0.001\text{ g}$).
+- Agua destilada, frascos lavadores y papel absorbente.
+- Marcador permanente y cinta adhesiva.
+
+## 2. Aspectos Teóricos e Introducción
+
+La germinación inicia con la **embibición** de agua por la semilla seca y culmina con la protrusión de la radícula a través de las cubiertas seminales. Este proceso está estrictamente regulado por la disponibilidad hídrica ($\Psi_w$), el balance fitohormonal entre el **Ácido Giberélico ($GA_3$)** (promotor) y el **Ácido Abscísico ($ABA$)** (inhibidor), y señales ambientales como la luz (fitocromos) y la temperatura.
+
+Defina brevemente:
+
+• **Fases de la Embibición y Curva Trifásica de Absorción de Agua:**
+
+\hrulefill
+
+\hrulefill
+
+• **Efecto del Potencial Osmótico ($\Psi_s$) sobre la Germinación:**
+
+\hrulefill
+
+\hrulefill
+
+• **Fotoblastismo (Semillas Fotoblásticas Positivas vs. Negativas):**
+
+\hrulefill
+
+\hrulefill
+
+## 3. Procedimiento Experimental
+
+### A. Montaje de Tratamientos ($n=3$ cajas por grupo)
+
+1. Seleccione 225 semillas sanas de tamaño y peso uniforme (25 semillas por caja de Petri).
+2. Prepare 9 cajas de Petri con papel filtro en el fondo y distribuya los tratamientos:
+   - **T1 (Control - Luz / Agua Destilada):** 3 cajas de Petri humedecidas con 5 mL de agua destilada, expuestas a fotoperíodo normal.
+   - **T2 (Estrés Salino - NaCl 150 mM):** 3 cajas de Petri humedecidas con 5 mL de solución de NaCl 150 mM bajo fotoperíodo normal.
+   - **T3 (Oscuridad Continua - Agua Destilada):** 3 cajas de Petri humedecidas con 5 mL de agua destilada y envueltas completamente en papel aluminio.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.78]
+  % TRATAMIENTO 1: Control (Luz / Agua)
+  \begin{scope}[shift={(0,0)}]
+    \draw[thick] (0,0) ellipse (0.75cm and 0.25cm);
+    \draw[thick] (-0.75,0) -- (-0.75,0.3) arc (180:360:0.75cm and 0.25cm) -- (0.75,0);
+    \fill[gray!20] (-0.73,0.05) arc (180:360:0.73cm and 0.23cm) -- cycle;
+    % Semillas germinadas con radícula
+    \fill[green!40!black] (-0.3,0.05) circle (1.8pt); \draw[green!60!black, thick] (-0.3,0.05) -- (-0.4,-0.05);
+    \fill[green!40!black] (0.1,0.1) circle (1.8pt); \draw[green!60!black, thick] (0.1,0.1) -- (0.2,0.02);
+    \fill[green!40!black] (0.3,-0.05) circle (1.8pt); \draw[green!60!black, thick] (0.3,-0.05) -- (0.4,-0.15);
+    
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.5) {T1: Control};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.8) {Luz / $H_2O$ ($n=3$)};
+  \end{scope}
+
+  % TRATAMIENTO 2: Estrés Salino
+  \begin{scope}[shift={(2.6,0)}]
+    \draw[thick] (0,0) ellipse (0.75cm and 0.25cm);
+    \draw[thick] (-0.75,0) -- (-0.75,0.3) arc (180:360:0.75cm and 0.25cm) -- (0.75,0);
+    \fill[blue!10] (-0.73,0.05) arc (180:360:0.73cm and 0.23cm) -- cycle;
+    % Semillas hinchadas/sin radícula
+    \fill[brown!70!black] (-0.3,0.05) circle (2.0pt);
+    \fill[brown!70!black] (0.0,0.08) circle (2.0pt);
+    \fill[brown!70!black] (0.35,-0.02) circle (2.0pt);
+    
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.5) {T2: Estrés Salino};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.8) {NaCl 150 mM ($n=3$)};
+  \end{scope}
+
+  % TRATAMIENTO 3: Oscuridad
+  \begin{scope}[shift={(5.2,0)}]
+    \draw[thick, fill=gray!40] (0,0) ellipse (0.75cm and 0.25cm);
+    \draw[thick, fill=gray!50] (-0.75,0) -- (-0.75,0.3) arc (180:360:0.75cm and 0.25cm) -- (0.75,0) -- cycle;
+    \node[font=\fontsize{5}{6}\bfseries\selectfont, black] at (0,0.15) {ALUMINIO};
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.5) {T3: Oscuridad};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.8) {Cubierto ($n=3$)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+### B. Evaluación Cuantitativa (Día 7)
+
+1. A los 7 días de incubación a temperatura constante ($22-25^\circ\text{C}$), abra las cajas (T3 solo al momento de la lectura final).
+2. Se considera una semilla **germinada** si la radícula presenta una longitud $\ge 2\text{ mm}$.
+3. Registre el número total de semillas germinadas por caja ($N_g$) para calcular el Porcentaje de Germinación ($\%G = \frac{N_g}{25} \times 100$).
+4. Mida con regla la longitud de la radícula ($\text{cm}$) en 5 semillas germinadas al azar por caja de Petri.
+
+## 4. Registro de Resultados
+
+### Tabla 1. Porcentaje de Germinación (%G) e Índice de Vigor al Día 7
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|c|c|c|c|c}
+\hline
+\textbf{Tratamiento} & \textbf{Variable} & \textbf{Rép. A} & \textbf{Rép. B} & \textbf{Rép. C} & \textbf{Promedio ($\bar{x}$)} & \textbf{Desv. Est. ($s$)} \\
+\hline
+1. Control & Germinación ($\%$) & & & & & \\
+(Luz / Agua) & Long. Radícula (cm) & & & & & \\
+\hline
+2. Estrés Salino & Germinación ($\%$) & & & & & \\
+(NaCl 150 mM) & Long. Radícula (cm) & & & & & \\
+\hline
+3. Oscuridad & Germinación ($\%$) & & & & & \\
+(Agua Destilada) & Long. Radícula (cm) & & & & & \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+### Tabla 2. Observaciones Morfológicas del Plántula y Embrión
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Aspecto de la Radícula, Hipocótilo y Pigmentación} \\
+\hline
+1. Control (Luz) & \\
+\hline
+2. Estrés Salino & \\
+\hline
+3. Oscuridad & \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+## 5. Análisis Estadístico y Gráfico (Estilo `ggplot2`)
+
+Calcule el promedio ($\bar{x}$) y la desviación estándar ($s$) para cada variable de respuesta:
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+
+### Gráfica 1: Porcentaje Final de Germinación (%G) con Barras de Error
+*Morfología: `ggplot(data, aes(x=Tratamiento, y=Germinacion)) + geom_col() + geom_errorbar()`*
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % Grid ggplot2
+  \draw[gray!20, step=0.5cm] (0,0) grid (6.5,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6.5,4.0);
+  \draw[thick] (0,0) rectangle (6.5,4.0);
+  
+  % Eje X
+  \node[below, font=\tiny] at (1.2,0) {\textbf{Control}};
+  \node[below, font=\tiny] at (3.25,0) {\textbf{NaCl 150 mM}};
+  \node[below, font=\tiny] at (5.3,0) {\textbf{Oscuridad}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[left, font=\tiny] at (0,0) {0};
+  \node[left, font=\tiny] at (0,1) {25};
+  \node[left, font=\tiny] at (0,2) {50};
+  \node[left, font=\tiny] at (0,3) {75};
+  \node[left, font=\tiny] at (0,4) {100};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Germinación (\%)}};
+\end{tikzpicture}
+\end{center}
+
+### Gráfica 2: Longitud Promedio de Radícula (cm) con Barras de Error
+*Morfología: `ggplot(data, aes(x=Tratamiento, y=Longitud)) + geom_col() + geom_errorbar()`*
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  \draw[gray!20, step=0.5cm] (0,0) grid (6.5,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6.5,4.0);
+  \draw[thick] (0,0) rectangle (6.5,4.0);
+  
+  \node[below, font=\tiny] at (1.2,0) {\textbf{Control}};
+  \node[below, font=\tiny] at (3.25,0) {\textbf{NaCl 150 mM}};
+  \node[below, font=\tiny] at (5.3,0) {\textbf{Oscuridad}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  \node[left, font=\tiny] at (0,0) {0.0};
+  \node[left, font=\tiny] at (0,1) {1.0};
+  \node[left, font=\tiny] at (0,2) {2.0};
+  \node[left, font=\tiny] at (0,3) {3.0};
+  \node[left, font=\tiny] at (0,4) {4.0};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Longitud Radícula (cm)}};
+\end{tikzpicture}
+\end{center}
+
+## 6. Actividades Complementarias
+
+1. Explique el mecanismo biofísico y metabólico por el cual un potencial osmótico negativo ($\Psi_s$) producido por el NaCl inhibe o retrasa la protrusión de la radícula.
+
+\hrulefill
+
+\hrulefill
+
+2. ¿Qué papel cumple el fitocromo (forma $P_{fr}$) en la inducción de la germinación de semillas sensibles a la luz y cómo interactúa con el balance $GA_3 / ABA$?
+
+\hrulefill
+
+\hrulefill
+
+3. Distinga entre germinación **epígea** e **hipógea** e identifique a cuál de estos tipos pertenece la especie vegetal utilizada en la práctica.
+
+\hrulefill
+
+\hrulefill
+
+## 7. Conclusión
+
+Interprete los resultados cuantitativos ($\bar{x} \pm s$) relacionando la capacidad germinativa con la disponibilidad hídrica y las condiciones de iluminación:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 8. Bibliografía
+
+- Azcón-Bieto, J., & Talón, M. (2008). *Fundamentos de Fisiología Vegetal* (2.ª ed.). McGraw-Hill.
+- Bewley, J. D., Bradford, K. J., Hilhorst, H. W., & Nonogaki, H. (2013). *Seeds: Physiology of Development, Germination and Dormancy* (3rd ed.). Springer.
+- Taiz, L., & Zeiger, E. (2002). *Plant Physiology* (3rd ed.). Sinauer Associates.

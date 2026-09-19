@@ -1,0 +1,406 @@
+---
+title: "Práctica No. 2 – Relaciones Hídricas"
+lang: es
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    classoption: [twocolumn]
+    fontsize: 10pt
+    geometry: top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm
+    mainfont: "Fira Sans"
+    linestretch: 1.2
+    papersize: letter
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header: 
+        text: |
+            \usepackage{tikz}
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+**Fecha**: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+**Nombre:** \hrulefill
+
+**Objetivo:** Reconocer la manifestación de difusión, ósmosis y plasmólisis en células vegetales; observar cambios de turgencia en medios hipertónicos, hipotónicos e isotónicos; y determinar el potencial hídrico de un tejido vegetal mediante los métodos gravimétrico y densimétrico.
+
+## 1. Materiales
+
+- Hojas de *Elodea* (*Egeria densa*)
+- Tubérculo de papa (*Solanum tuberosum*)
+- Kit de disección
+- Portaobjetos y cubreobjetos
+- Regla
+
+## 2. Aspectos teóricos sobre relaciones hídricas
+
+Las relaciones hídricas en las plantas se refieren al movimiento y distribución del agua dentro del organismo vegetal y su interacción con el ambiente circundante. El potencial hídrico ($\Psi$) es una medida que determina la dirección y la velocidad del flujo de agua en las células vegetales, estando determinado fundamentalmente por el potencial osmótico ($\Psi_s$) y el potencial de presión ($\Psi_p$).
+
+Defina brevemente los siguientes conceptos:
+
+### 1. Potencial hídrico ($\Psi$) y sus componentes ($\Psi_s$, $\Psi_p$):
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+
+### 2. Plasmólisis y plasmólisis incipiente:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+
+### 3. Ecuación de Van't Hoff ($\Psi = -RTC$) y explicación de sus variables:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+
+## 3. Cambios de turgencia celular
+
+<!---
+![Procedimiento para realizar un montaje húmedo.](images/montaje.png){width="30%"}
+--->
+
+1. Tome varias hojas de *Elodea* y colóquelas en cajas de Petri con soluciones de sacarosa de 0.05, 0.15, 0.25, 0.50 y 0.75 M durante 10 minutos.
+2. Realice un montaje húmedo con portaobjetos y cubreobjetos (comenzando por observar las muestras de 0.05 M y 0.75 M).
+3. Observe en el microscopio óptico 25 células por tratamiento y anote cuántas aparecen turgentes y cuántas plasmolizadas.
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+  \draw[thick] (0,0) circle (2.8cm);
+  \node[below] at (0,-2.9) {\textbf{Muestra con 0.05 M}};
+\end{tikzpicture}
+\end{center}
+```
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+  \draw[thick] (0,0) circle (2.8cm);
+  \node[below] at (0,-2.9) {\textbf{Muestra con 0.75 M}};
+\end{tikzpicture}
+\end{center}
+```
+Describa los cambios celulares observados en la membrana plasmática respecto a la pared celular en cada concentración:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+¿En cuál solución de sacarosa el 50% de las células presenta plasmólisis incipiente (concentración isotónica)?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+
+## 4. Potencial hídrico en tejidos vegetales
+
+**Temperatura ambiental del laboratorio:** \hrulefill $^\circ\text{C}$ ($\text{K} =$ \hrulefill)
+
+En un vaso de precipitado con agua introduzca un termómetro y registre la temperatura estabilizada.
+
+### a. Método gravimétrico (cambio de masa)
+
+1. En una batería de 5 tubos de ensayo, adicione 10 mL de cada solución de sacarosa (0.05 M a 0.75 M).
+
+
+2. Corte 5 cilindros de papa (*Solanum tuberosum*) de aproximadamente 5 cm de largo.
+
+
+3. Pese cada cilindro, registre la masa inicial, introdúzcalos en cada tubo durante 1 hora, seque el exceso de humedad y peselos nuevamente.
+
+
+
+```{r}
+#| echo: false
+#| eval: false
+data.frame(
+  Tubo = 1:5,
+  Sacarosa_M = c(0.05, 0.15, 0.25, 0.50, 0.75),
+  Masa_Inicial_g = rep("", 5),
+  Masa_Final_g = rep("", 5),
+  Cambio_Masa_pct = rep("", 5)
+) |> 
+  knitr::kable(format="latex")
+
+```
+
+```{=latex}
+\begin{tabular}{c|c|p{1.5cm}|p{1.5cm}|p{1.5cm}}
+\hline
+Tubo & Conc. (M) & Masa Inicial (g) & Masa Final (g) & Cambio Masa (\%) \\
+\hline
+1 & 0.05 &  &  &  \\
+\hline
+2 & 0.15 &  &  &  \\
+\hline
+3 & 0.25 &  &  &  \\
+\hline
+4 & 0.50 &  &  &  \\
+\hline
+5 & 0.75 &  &  &  \\
+\hline
+\end{tabular}
+
+```
+
+Calcule el potencial hídrico para la solución en la que no hubo cambio de masa expresado en MPa ($\Psi = -RTC$):
+
+\hrulefill
+
+\hrulefill
+
+
+Interprete los resultados obtenidos mediante el método gravimétrico:
+
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+
+### b. Método densimétrico (Chardakov)
+
+1. Agregue una gota de azul de metileno a las soluciones donde reposaron las papas y agite con cuidado.
+
+
+2. Extraiga una gota con pipeta y trasfiérala a los tubos de la segunda batería testigo (solución sin colorante). Evite agitar o intentar disolver la gota en la solución sin colorante.
+
+
+3. Observe si la gota desciende al fondo, sube hacia la superficie o permanece estacionaria.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  \foreach \x/\ydrop/\lbl in {
+    0/2.1/{\textbf{La gota sube:} la solución se diluyó, puesto que el tejido vegetal pierde agua.},
+    2.7/1.3/{\textbf{La gota permanece o se difunde:} los potenciales en el tejido y la solución son iguales.},
+    5.4/0.55/{\textbf{La gota baja:} la solución se concentró y aumentó su densidad, transfirió agua al tejido vegetal.}
+  } {
+    % Borde superior acampanado y cuerpo del tubo de ensayo
+    \draw[thick] (\x-0.08, 3.2) -- (\x, 3.0) -- (\x, 0.5) 
+                 arc (180:360:0.45) -- (\x+0.9, 3.0) -- (\x+0.98, 3.2);
+
+    % Menisco de la solución
+    \draw[thick] (\x, 2.5) .. controls (\x+0.25, 2.2) and (\x+0.65, 2.2) .. (\x+0.9, 2.5);
+
+    % Gota colorante (forma de lágrima)
+    \fill[blue!85!black] (\x+0.45, \ydrop+0.18) 
+      .. controls (\x+0.22, \ydrop+0.02) and (\x+0.22, \ydrop-0.25) .. (\x+0.45, \ydrop-0.25) 
+      .. controls (\x+0.68, \ydrop-0.25) and (\x+0.68, \ydrop+0.02) .. cycle;
+
+    % Caja descriptiva inferior (Ajustada para evitar colisiones)
+    \node[draw=black, fill=gray!12, rounded corners=4pt, inner sep=3pt, text width=2.0cm, align=left, font=\fontsize{6}{7}\selectfont, anchor=north] 
+      at (\x+0.45, -0.2) {\lbl};
+  }
+\end{tikzpicture}
+\end{center}
+
+
+
+```{r}
+#| echo: false
+#| eval: false
+data.frame(
+  Tubo = 1:5,
+  Sacarosa_M = c(0.05, 0.15, 0.25, 0.50, 0.75),
+  Movimiento = rep("", 5),
+  Interpretacion = rep("", 5)
+) |> 
+  knitr::kable(format="latex")
+
+```
+
+```{=latex}
+\begin{tabular}{c|c|p{6em}|p{7em}}
+\hline
+Tubo & Conc. (M) & Movimiento Gota & Interpretación \\
+\hline
+1 & 0.05 &  &  \\
+\hline
+2 & 0.15 &  &  \\
+\hline
+3 & 0.25 &  &  \\
+\hline
+4 & 0.50 &  &  \\
+\hline
+5 & 0.75 &  &  \\
+\hline
+\end{tabular}
+
+```
+
+Interprete los resultados obtenidos mediante el método densimétrico:
+
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 5. Actividades complementarias
+
+1. Explique el concepto de presión osmótica y su importancia biológica.
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+2. ¿Cómo se modifica el potencial hídrico celular y cada uno de sus componentes cuando las células están en contacto con medios iso, hiper e hipotónicos?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+3. ¿Qué ventajas y desventajas tiene utilizar el método densimétrico para medir el potencial hídrico?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+4. ¿Cuáles son los efectos del potencial hídrico en los procesos fisiológicos de las plantas? Explique.
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 6. Conclusión
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 7. Bibliografía
+
+* Azcón-Bieto, J., & Talón, M. (2008). *Fundamentos de Fisiología Vegetal*. McGraw-Hill Interamericana.
+
+
+* Casselles O., A. (2013). *Biología práctica: Guías de trabajo*. Colombia.
+
+
+* Melgarejo, L. M. (Ed.). (2010). *Experimentos en fisiología vegetal*. Universidad Nacional de Colombia.
+
+
+* Taiz, L., & Zeiger, E. (2002). *Plant Physiology* (3rd ed.). Sinauer Associates Ltd.

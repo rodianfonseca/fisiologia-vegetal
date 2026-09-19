@@ -1,0 +1,552 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  10pt,
+  letterpaper,
+  twocolumn]{article}
+\usepackage{xcolor}
+\usepackage[top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Fira Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Fira Sans}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\renewcommand{\arraystretch}{1.4}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Práctica -- Fisiología de la Germinación y Estrés Abiótico},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\vspace{-1.5em}{\Huge \textbf{Práctica -- Fisiología de la
+Germinación y Estrés Abiótico}}\vspace{-1.5em}}
+\date{}
+\begin{document}
+\maketitle
+
+
+\setstretch{1.2}
+\textbf{Fecha}: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+\textbf{Nombre:} \hrulefill
+
+\textbf{Objetivos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Evaluar la cinética de germinación y el efecto del potencial osmótico
+  y la luz sobre la protrusión radicular.
+\item
+  Determinar cuantitativamente el Porcentaje Final de Germinación
+  (\(\%G\)), el Tiempo Medio de Germinación (\(TMG\)) y la longitud de
+  la radícula.
+\end{itemize}
+
+\subsection{1. Materiales}\label{materiales}
+
+\begin{itemize}
+\tightlist
+\item
+  Semillas homogéneas (\emph{Phaseolus vulgaris} / frijol o \emph{Zea
+  mays} / maíz).
+\item
+  Cajas de Petri esterilizadas y papel filtro (disco).
+\item
+  Soluciones de tratamiento: Agua destilada (Control), NaCl 150 mM
+  (Estrés Salino) y solución en oscuridad/cubierta de aluminio.
+\item
+  Regla graduada milimetrada, bisturí y pinzas de precisión.
+\item
+  Balanza analítica (\(0.001\text{ g}\)).
+\item
+  Agua destilada, frascos lavadores y papel absorbente.
+\item
+  Marcador permanente y cinta adhesiva.
+\end{itemize}
+
+\subsection{2. Aspectos Teóricos e
+Introducción}\label{aspectos-teuxf3ricos-e-introducciuxf3n}
+
+La germinación inicia con la \textbf{embibición} de agua por la semilla
+seca y culmina con la protrusión de la radícula a través de las
+cubiertas seminales. Este proceso está estrictamente regulado por la
+disponibilidad hídrica (\(\Psi_w\)), el balance fitohormonal entre el
+\textbf{Ácido Giberélico (\(GA_3\))} (promotor) y el \textbf{Ácido
+Abscísico (\(ABA\))} (inhibidor), y señales ambientales como la luz
+(fitocromos) y la temperatura.
+
+Defina brevemente:
+
+• \textbf{Fases de la Embibición y Curva Trifásica de Absorción de
+Agua:}
+
+\hrulefill
+
+\hrulefill
+
+• \textbf{Efecto del Potencial Osmótico (\(\Psi_s\)) sobre la
+Germinación:}
+
+\hrulefill
+
+\hrulefill
+
+• \textbf{Fotoblastismo (Semillas Fotoblásticas Positivas
+vs.~Negativas):}
+
+\hrulefill
+
+\hrulefill
+
+\subsection{3. Procedimiento
+Experimental}\label{procedimiento-experimental}
+
+\subsubsection{\texorpdfstring{A. Montaje de Tratamientos (\(n=3\) cajas
+por
+grupo)}{A. Montaje de Tratamientos (n=3 cajas por grupo)}}\label{a.-montaje-de-tratamientos-n3-cajas-por-grupo}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Seleccione 225 semillas sanas de tamaño y peso uniforme (25 semillas
+  por caja de Petri).
+\item
+  Prepare 9 cajas de Petri con papel filtro en el fondo y distribuya los
+  tratamientos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{T1 (Control - Luz / Agua Destilada):} 3 cajas de Petri
+    humedecidas con 5 mL de agua destilada, expuestas a fotoperíodo
+    normal.
+  \item
+    \textbf{T2 (Estrés Salino - NaCl 150 mM):} 3 cajas de Petri
+    humedecidas con 5 mL de solución de NaCl 150 mM bajo fotoperíodo
+    normal.
+  \item
+    \textbf{T3 (Oscuridad Continua - Agua Destilada):} 3 cajas de Petri
+    humedecidas con 5 mL de agua destilada y envueltas completamente en
+    papel aluminio.
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.78]
+  % TRATAMIENTO 1: Control (Luz / Agua)
+  \begin{scope}[shift={(0,0)}]
+    \draw[thick] (0,0) ellipse (0.75cm and 0.25cm);
+    \draw[thick] (-0.75,0) -- (-0.75,0.3) arc (180:360:0.75cm and 0.25cm) -- (0.75,0);
+    \fill[gray!20] (-0.73,0.05) arc (180:360:0.73cm and 0.23cm) -- cycle;
+    % Semillas germinadas con radícula
+    \fill[green!40!black] (-0.3,0.05) circle (1.8pt); \draw[green!60!black, thick] (-0.3,0.05) -- (-0.4,-0.05);
+    \fill[green!40!black] (0.1,0.1) circle (1.8pt); \draw[green!60!black, thick] (0.1,0.1) -- (0.2,0.02);
+    \fill[green!40!black] (0.3,-0.05) circle (1.8pt); \draw[green!60!black, thick] (0.3,-0.05) -- (0.4,-0.15);
+    
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.5) {T1: Control};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.8) {Luz / $H_2O$ ($n=3$)};
+  \end{scope}
+
+  % TRATAMIENTO 2: Estrés Salino
+  \begin{scope}[shift={(2.6,0)}]
+    \draw[thick] (0,0) ellipse (0.75cm and 0.25cm);
+    \draw[thick] (-0.75,0) -- (-0.75,0.3) arc (180:360:0.75cm and 0.25cm) -- (0.75,0);
+    \fill[blue!10] (-0.73,0.05) arc (180:360:0.73cm and 0.23cm) -- cycle;
+    % Semillas hinchadas/sin radícula
+    \fill[brown!70!black] (-0.3,0.05) circle (2.0pt);
+    \fill[brown!70!black] (0.0,0.08) circle (2.0pt);
+    \fill[brown!70!black] (0.35,-0.02) circle (2.0pt);
+    
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.5) {T2: Estrés Salino};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.8) {NaCl 150 mM ($n=3$)};
+  \end{scope}
+
+  % TRATAMIENTO 3: Oscuridad
+  \begin{scope}[shift={(5.2,0)}]
+    \draw[thick, fill=gray!40] (0,0) ellipse (0.75cm and 0.25cm);
+    \draw[thick, fill=gray!50] (-0.75,0) -- (-0.75,0.3) arc (180:360:0.75cm and 0.25cm) -- (0.75,0) -- cycle;
+    \node[font=\fontsize{5}{6}\bfseries\selectfont, black] at (0,0.15) {ALUMINIO};
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.5) {T3: Oscuridad};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.8) {Cubierto ($n=3$)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{B. Evaluación Cuantitativa (Día
+7)}\label{b.-evaluaciuxf3n-cuantitativa-duxeda-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A los 7 días de incubación a temperatura constante
+  (\(22-25^\circ\text{C}\)), abra las cajas (T3 solo al momento de la
+  lectura final).
+\item
+  Se considera una semilla \textbf{germinada} si la radícula presenta
+  una longitud \(\ge 2\text{ mm}\).
+\item
+  Registre el número total de semillas germinadas por caja (\(N_g\))
+  para calcular el Porcentaje de Germinación
+  (\(\%G = \frac{N_g}{25} \times 100\)).
+\item
+  Mida con regla la longitud de la radícula (\(\text{cm}\)) en 5
+  semillas germinadas al azar por caja de Petri.
+\end{enumerate}
+
+\subsection{4. Registro de Resultados}\label{registro-de-resultados}
+
+\subsubsection{Tabla 1. Porcentaje de Germinación (\%G) e Índice de
+Vigor al Día
+7}\label{tabla-1.-porcentaje-de-germinaciuxf3n-g-e-uxedndice-de-vigor-al-duxeda-7}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|c|c|c|c|c}
+\hline
+\textbf{Tratamiento} & \textbf{Variable} & \textbf{Rép. A} & \textbf{Rép. B} & \textbf{Rép. C} & \textbf{Promedio ($\bar{x}$)} & \textbf{Desv. Est. ($s$)} \\
+\hline
+1. Control & Germinación ($\%$) & & & & & \\
+(Luz / Agua) & Long. Radícula (cm) & & & & & \\
+\hline
+2. Estrés Salino & Germinación ($\%$) & & & & & \\
+(NaCl 150 mM) & Long. Radícula (cm) & & & & & \\
+\hline
+3. Oscuridad & Germinación ($\%$) & & & & & \\
+(Agua Destilada) & Long. Radícula (cm) & & & & & \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+\subsubsection{Tabla 2. Observaciones Morfológicas del Plántula y
+Embrión}\label{tabla-2.-observaciones-morfoluxf3gicas-del-pluxe1ntula-y-embriuxf3n}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Aspecto de la Radícula, Hipocótilo y Pigmentación} \\
+\hline
+1. Control (Luz) & \\
+\hline
+2. Estrés Salino & \\
+\hline
+3. Oscuridad & \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+\subsection{\texorpdfstring{5. Análisis Estadístico y Gráfico (Estilo
+\texttt{ggplot2})}{5. Análisis Estadístico y Gráfico (Estilo ggplot2)}}\label{anuxe1lisis-estaduxedstico-y-gruxe1fico-estilo-ggplot2}
+
+Calcule el promedio (\(\bar{x}\)) y la desviación estándar (\(s\)) para
+cada variable de respuesta:
+
+\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}\]
+
+\subsubsection{Gráfica 1: Porcentaje Final de Germinación (\%G) con
+Barras de
+Error}\label{gruxe1fica-1-porcentaje-final-de-germinaciuxf3n-g-con-barras-de-error}
+
+\emph{Morfología:
+\texttt{ggplot(data,\ aes(x=Tratamiento,\ y=Germinacion))\ +\ geom\_col()\ +\ geom\_errorbar()}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % Grid ggplot2
+  \draw[gray!20, step=0.5cm] (0,0) grid (6.5,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6.5,4.0);
+  \draw[thick] (0,0) rectangle (6.5,4.0);
+  
+  % Eje X
+  \node[below, font=\tiny] at (1.2,0) {\textbf{Control}};
+  \node[below, font=\tiny] at (3.25,0) {\textbf{NaCl 150 mM}};
+  \node[below, font=\tiny] at (5.3,0) {\textbf{Oscuridad}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[left, font=\tiny] at (0,0) {0};
+  \node[left, font=\tiny] at (0,1) {25};
+  \node[left, font=\tiny] at (0,2) {50};
+  \node[left, font=\tiny] at (0,3) {75};
+  \node[left, font=\tiny] at (0,4) {100};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Germinación (\%)}};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Gráfica 2: Longitud Promedio de Radícula (cm) con Barras
+de
+Error}\label{gruxe1fica-2-longitud-promedio-de-raduxedcula-cm-con-barras-de-error}
+
+\emph{Morfología:
+\texttt{ggplot(data,\ aes(x=Tratamiento,\ y=Longitud))\ +\ geom\_col()\ +\ geom\_errorbar()}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  \draw[gray!20, step=0.5cm] (0,0) grid (6.5,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6.5,4.0);
+  \draw[thick] (0,0) rectangle (6.5,4.0);
+  
+  \node[below, font=\tiny] at (1.2,0) {\textbf{Control}};
+  \node[below, font=\tiny] at (3.25,0) {\textbf{NaCl 150 mM}};
+  \node[below, font=\tiny] at (5.3,0) {\textbf{Oscuridad}};
+  \node[below=10pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  \node[left, font=\tiny] at (0,0) {0.0};
+  \node[left, font=\tiny] at (0,1) {1.0};
+  \node[left, font=\tiny] at (0,2) {2.0};
+  \node[left, font=\tiny] at (0,3) {3.0};
+  \node[left, font=\tiny] at (0,4) {4.0};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Longitud Radícula (cm)}};
+\end{tikzpicture}
+\end{center}
+
+\subsection{6. Actividades
+Complementarias}\label{actividades-complementarias}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Explique el mecanismo biofísico y metabólico por el cual un potencial
+  osmótico negativo (\(\Psi_s\)) producido por el NaCl inhibe o retrasa
+  la protrusión de la radícula.
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Qué papel cumple el fitocromo (forma \(P_{fr}\)) en la inducción de
+  la germinación de semillas sensibles a la luz y cómo interactúa con el
+  balance \(GA_3 / ABA\)?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Distinga entre germinación \textbf{epígea} e \textbf{hipógea} e
+  identifique a cuál de estos tipos pertenece la especie vegetal
+  utilizada en la práctica.
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\subsection{7. Conclusión}\label{conclusiuxf3n}
+
+Interprete los resultados cuantitativos (\(\bar{x} \pm s\)) relacionando
+la capacidad germinativa con la disponibilidad hídrica y las condiciones
+de iluminación:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{8. Bibliografía}\label{bibliografuxeda}
+
+\begin{itemize}
+\tightlist
+\item
+  Azcón-Bieto, J., \& Talón, M. (2008). \emph{Fundamentos de Fisiología
+  Vegetal} (2.ª ed.). McGraw-Hill.
+\item
+  Bewley, J. D., Bradford, K. J., Hilhorst, H. W., \& Nonogaki, H.
+  (2013). \emph{Seeds: Physiology of Development, Germination and
+  Dormancy} (3rd ed.). Springer.
+\item
+  Taiz, L., \& Zeiger, E. (2002). \emph{Plant Physiology} (3rd ed.).
+  Sinauer Associates.
+\end{itemize}
+
+
+
+
+\end{document}
