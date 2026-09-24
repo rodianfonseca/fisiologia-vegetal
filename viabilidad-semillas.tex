@@ -1,0 +1,617 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  10pt,
+  letterpaper,
+  twocolumn]{article}
+\usepackage{xcolor}
+\usepackage[top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Fira Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Fira Sans}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\renewcommand{\arraystretch}{1.4}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Práctica -- Viabilidad de Semillas},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\vspace{-1.5em}{\Huge \textbf{Práctica -- Viabilidad de
+Semillas}}\vspace{-1.5em}}
+\date{}
+\begin{document}
+\maketitle
+
+
+\setstretch{1.2}
+\textbf{Fecha}: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+\textbf{Nombre:} \hrulefill
+
+\textbf{Objetivos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Evaluar la viabilidad embrionaria en semillas de frijol
+  (\emph{Phaseolus vulgaris}) o maíz (\emph{Zea mays}) mediante la
+  prueba bioquímica del Cloruro de 2,3,5-trifeniltetrazolio (TZ).
+\item
+  Evaluar el efecto de la desnaturalización térmica enzimática sobre la
+  capacidad respiratoria de las semillas.
+\item
+  Cuantificar el Porcentaje de Viabilidad (\(\%V\)) mediante estadística
+  descriptiva (\(\bar{x} \pm s\)) y representaciones gráficas.
+\end{itemize}
+
+\subsection{1. Materiales}\label{materiales}
+
+\begin{itemize}
+\tightlist
+\item
+  Semillas de \emph{Phaseolus vulgaris} (frijol) o \emph{Zea mays}
+  (maíz).
+\item
+  Kit de disección.
+\item
+  Guantes
+\end{itemize}
+
+\subsection{2. Aspectos Teóricos e
+Introducción}\label{aspectos-teuxf3ricos-e-introducciuxf3n}
+
+La prueba de \textbf{Tetrazolio} determina la viabilidad de las semillas
+evaluando la actividad de las enzimas \textbf{deshidrogenasas} de la
+cadena respiratoria mitocondrial. En células vivas e imbibidas, estas
+enzimas transfieren protones (\(H^+\)) al Cloruro de
+2,3,5-trifeniltetrazolio (incoloro y soluble), reduciéndolo a
+\textbf{Formazán} (insoluble y de color rojo intenso). La exposición a
+altas temperaturas causa la desnaturalización irreversible de la
+estructura terciaria/cuaternaria de las proteínas y enzimas, anulando la
+respiración celular y la reacción de tinción.
+
+Defina brevemente:
+
+• \textbf{Mecanismo Bioquímico de Reducción del Tetrazolio a Formazán:}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+• \textbf{Efecto de la Temperatura sobre la Desnaturalización
+Enzimática:}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+• \textbf{Evaluación Topográfica (Diferencia entre daño en el eje
+embrionario vs.~cotiledones):}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{3. Procedimiento
+Experimental}\label{procedimiento-experimental}
+
+\subsubsection{A. Imbibición y
+Preacondicionamiento}\label{a.-imbibiciuxf3n-y-preacondicionamiento}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Coloque 60 semillas en agua a temperatura ambiente durante 18--24
+  horas antes de la práctica para activar el metabolismo celular y
+  facilitar el corte.
+\end{enumerate}
+
+\subsubsection{B. Aplicación del Tratamiento
+Térmico}\label{b.-aplicaciuxf3n-del-tratamiento-tuxe9rmico}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Grupo Tratamiento Térmico:} Sumerja 30 semillas imbibidas en
+  un vaso de precipitado con agua caliente a \(80-90^\circ\text{C}\) en
+  baño María durante \textbf{15 minutos} para inducir la inactivación
+  térmica de las deshidrogenasas.
+\item
+  Retire las semillas del agua caliente y déjelas enfriar a temperatura
+  ambiente en agua destilada.
+\end{enumerate}
+
+\subsubsection{C. Corte e Incubación en Solución de
+TZ}\label{c.-corte-e-incubaciuxf3n-en-soluciuxf3n-de-tz}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Con el bisturí, realice un corte longitudinal sagital exponiendo
+  claramente el eje embrionario y los cotiledones.
+\item
+  Coloque la mitad de cada semilla que contenga el embrión en cajas de
+  Petri cubiertas con 5 mL de solución de TZ al 1\% e incube a
+  \(35^\circ\text{C}\) en oscuridad durante 60 minutos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{T1 (Control - Sin Calor):} 3 cajas de Petri de 10 semillas
+    cada una.
+  \item
+    \textbf{T2 (Tratamiento Térmico - Con Calor):} 3 cajas de Petri de
+    10 semillas cada una.
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.78]
+  % SEMILLA VIABLE (Control - Tinción Completa)
+  \begin{scope}[shift={(0,0)}]
+    \draw[thick, fill=red!70!black] (0,0) .. controls (-0.6,0.8) and (-0.6,1.8) .. (0,2.2)
+                                     .. controls (0.6,1.8) and (0.6,0.8) .. (0,0) -- cycle;
+    \draw[thick, fill=red!90!black] (-0.05,0.3) .. controls (-0.2,0.8) .. (-0.05,1.2) -- (0.05,1.2) .. controls (0.2,0.8) .. (0.05,0.3) -- cycle;
+    
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.4) {Control (Sin Calor)};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.7) {Tejido Vivo / Respirando};
+  \end{scope}
+
+  % SEMILLA PARCIAL / DAÑO MODERADO
+  \begin{scope}[shift={(3,0)}]
+    \draw[thick, fill=gray!20] (0,0) .. controls (-0.6,0.8) and (-0.6,1.8) .. (0,2.2)
+                                   .. controls (0.6,1.8) and (0.6,0.8) .. (0,0) -- cycle;
+    \fill[red!60!black] (-0.02,0.02) .. controls (-0.55,0.8) and (-0.55,1.4) .. (-0.02,1.8) -- cycle;
+    \draw[thick, fill=red!80!black] (-0.05,0.3) .. controls (-0.2,0.8) .. (-0.05,1.2) -- (0.05,1.2) .. controls (0.2,0.8) .. (0.05,0.3) -- cycle;
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.4) {Calor Parcial};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.7) {Desnaturalización Incompleta};
+  \end{scope}
+
+  % SEMILLA NO VIABLE (Tratamiento Térmico - Sin tinción)
+  \begin{scope}[shift={(6,0)}]
+    \draw[thick, fill=gray!15] (0,0) .. controls (-0.6,0.8) and (-0.6,1.8) .. (0,2.2)
+                                     .. controls (0.6,1.8) and (0.6,0.8) .. (0,0) -- cycle;
+    \draw[thick, fill=gray!30] (-0.05,0.3) .. controls (-0.2,0.8) .. (-0.05,1.2) -- (0.05,1.2) .. controls (0.2,0.8) .. (0.05,0.3) -- cycle;
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.4) {Tratado con Calor};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.7) {Enzimas Inactivadas};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{D. Evaluación
+Topográfica}\label{d.-evaluaciuxf3n-topogruxe1fica}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Enjuague las semillas con agua destilada y examine bajo el
+  estereoscopio.
+\item
+  Clasifique cada semilla como \textbf{Viable} (tinción roja intensa en
+  el eje embrionario) o \textbf{No Viable} (sin tinción o tejido
+  blanquecino/necrosado por efecto térmico).
+\item
+  Calcule el porcentaje de viabilidad (\(\%V\)) por réplica (caja de
+  Petri) y determine el promedio (\(\bar{x}\)) y la desviación estándar
+  (\(s\)) para cada tratamiento:
+\end{enumerate}
+
+\[\%V = \frac{\text{Semillas Viables}}{\text{Total Semillas}} \times 100\]
+
+\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}\]
+
+\subsection{4. Registro de Resultados}\label{registro-de-resultados}
+
+\subsubsection{Tabla 1. Porcentaje de Viabilidad (\%V) por
+Tratamiento}\label{tabla-1.-porcentaje-de-viabilidad-v-por-tratamiento}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|p{2em}|p{2em}|p{2em}|p{2em}|p{2em}}
+\hline
+ &  & \multicolumn{3}{c|}{\textbf{Réplicas}} & \textbf{Prom} & \textbf{DE} \\
+\textbf{Tratamiento} & \textbf{Categoría} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{$\bar{x}$} & \textbf{$s$} \\
+\hline
+1. Control & Viables (\%) & & & & & \\[1ex]
+\cline{2-7}
+ & No Viables (\%) & & & & & \\[1ex]
+\hline
+2. Calor & Viables (\%) & & & & & \\[1ex]
+\cline{2-7}
+ & No Viables (\%) & & & & & \\[1ex]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados del porcentaje de semillas viables según
+tratamiento:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{Tabla 2. Descripción Topográfica de Patrones de Tinción y
+Coloración}\label{tabla-2.-descripciuxf3n-topogruxe1fica-de-patrones-de-tinciuxf3n-y-coloraciuxf3n}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Observación Microscópica y Localización del Formazán} \\
+\hline
+1. Control (Sin Calor) & \\[40pt]
+\hline
+2. Tratamiento Térmico & \\[40pt]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de la observación microscópica y localización
+del Formazán:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{5. Análisis Gráfico}\label{anuxe1lisis-gruxe1fico}
+
+Represente la viabilidad de las semillas utilizando puntos (promedio) y
+barras de error (desviación estándar) por tratamiento.
+
+\subsubsection{Gráfica 1: Porcentaje de Viabilidad (\%V) por
+Tratamiento}\label{gruxe1fica-1-porcentaje-de-viabilidad-v-por-tratamiento}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % Grid ggplot2
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X
+  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Calor}};
+  \node[below=12pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[left, font=\tiny] at (0,0) {0};
+  \node[left, font=\tiny] at (0,1) {25};
+  \node[left, font=\tiny] at (0,2) {50};
+  \node[left, font=\tiny] at (0,3) {75};
+  \node[left, font=\tiny] at (0,4) {100};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Viabilidad Seminal (\%)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados gráficos:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{6. Actividades
+Complementarias}\label{actividades-complementarias}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Explique a nivel molecular por qué el choque térmico
+  (\(80-90^\circ\text{C}\)) impide la reducción del Cloruro de
+  Tetrazolio a Formazán.
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Qué diferencia existiría en el patrón de tinción si las semillas se
+  someten a un calor moderado (\(50^\circ\text{C}\)) en lugar de un
+  calor extremo (\(90^\circ\text{C}\))?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ¿Por qué la prueba de Tetrazolio permite diagnosticar la muerte
+  celular antes de que se observen cambios morfológicos externos en la
+  semilla?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{7. Conclusión}\label{conclusiuxf3n}
+
+Interprete el impacto de la desnaturalización térmica sobre la actividad
+enzimática respiratoria y analice la confiabilidad de la prueba de TZ
+para diferenciar semillas viables de no viables:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{8. Bibliografía}\label{bibliografuxeda}
+
+\begin{itemize}
+\tightlist
+\item
+  Azcón-Bieto, J., \& Talón, M. (2008). \emph{Fundamentos de Fisiología
+  Vegetal} (2.ª ed.). McGraw-Hill.
+\item
+  Franca-Neto, J. B., \& Krzyzanowski, F. C. (2019). \emph{Tetrazolium
+  test for seed viability and vigor}. Embrapa Soja.
+\item
+  ISTA. (2020). \emph{International Rules for Seed Testing}.
+  International Seed Testing Association.
+\item
+  Taiz, L., \& Zeiger, E. (2002). \emph{Plant Physiology} (3rd ed.).
+  Sinauer Associates.
+\end{itemize}
+
+
+
+
+\end{document}

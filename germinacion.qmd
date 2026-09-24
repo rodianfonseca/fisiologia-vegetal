@@ -76,7 +76,7 @@ Defina brevemente:
 1. Seleccione 90 semillas sanas de tamaño y peso uniforme (10 semillas por caja de Petri).
 2. Prepare 9 cajas de Petri con papel filtro en el fondo y distribuya los tratamientos:
    - **T1 (Control - Luz / Agua Destilada):** 3 cajas de Petri humedecidas con 5 mL de agua destilada, expuestas a fotoperíodo normal.
-   - **T2 (Estrés Salino - NaCl 150 mM):** 3 cajas de Petri humedecidas con 5 mL de solución de NaCl 150 mM bajo fotoperíodo normal.
+   - **T2 (Estrés Salino - NaCl 4%):** 3 cajas de Petri humedecidas con 5 mL de solución de NaCl 4% bajo fotoperíodo normal.
    - **T3 (Oscuridad Continua - Agua Destilada):** 3 cajas de Petri humedecidas con 5 mL de agua destilada y envueltas completamente en papel aluminio.
 
 \begin{center}
@@ -126,7 +126,11 @@ Defina brevemente:
 1. A los 7 días de incubación a temperatura constante ($22-25^\circ\text{C}$), abra las cajas (T3 solo al momento de la lectura final).
 2. Se considera una semilla **germinada** si la radícula presenta una longitud $\ge 2\text{ mm}$.
 3. Registre el número total de semillas germinadas por caja ($N_g$) para calcular el Porcentaje de Germinación ($\%G = \frac{N_g}{25} \times 100$).
-4. Mida con regla la longitud de la radícula ($\text{cm}$) en 5 semillas germinadas al azar por caja de Petri.
+4. Mida con regla la longitud de la radícula ($\text{cm}$) en 5 semillas germinadas al azar y calcule el promedio ($\bar{x}$) por caja de Petri.
+5. Para cada tratamiento (3 réplicas), calcule el **Promedio** ($\bar{x}$) y la **Desviación Estándar** ($s$):
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+
 
 ## 4. Registro de Resultados
 
@@ -146,6 +150,46 @@ Defina brevemente:
 \hline
 3. Oscuridad & Germinación ($\%$) & & & & & \\
 (Agua Destilada) & Long. Radícula (cm) & & & & & \\
+\hline
+\end{tabular}%
+}
+\end{center}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|p{7em}}
+\hline
+\textbf{Tratamiento} & \textbf{Rép.} & \textbf{L. Raíz (cm)} & \textbf{P.F. Raíz (g)} & \textbf{P.F. Vást. (g)} & \textbf{Síntomas / Observaciones} \\
+\hline
+ & A & & & & \\
+M1 (Nut) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M2 (Nut) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M3 (Nut) & B & & & & \\
+ & C & & & & \\
+\hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$) Nut}} & & & & \multicolumn{1}{c}{---} \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$) Nut}} & & & & \multicolumn{1}{c}{---} \\
+\hline\hline
+ & A & & & & \\
+M4 (Ctrl) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M5 (Ctrl) & B & & & & \\
+ & C & & & & \\
+\hline
+ & A & & & & \\
+M6 (Ctrl) & B & & & & \\
+ & C & & & & \\
+\hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$) Ctrl}} & & & & \multicolumn{1}{c}{---} \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$) Ctrl}} & & & & \multicolumn{1}{c}{---} \\
 \hline
 \end{tabular}%
 }

@@ -1,0 +1,350 @@
+---
+title: "Práctica – Viabilidad de Semillas"
+lang: es
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    classoption: [twocolumn]
+    fontsize: 10pt
+    geometry: top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm
+    mainfont: "Fira Sans"
+    linestretch: 1.2
+    papersize: letter
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header:
+      text: |
+        \usepackage{tikz}
+        \usepackage{graphicx}
+        \usepackage{amsmath}
+        \renewcommand{\arraystretch}{1.4}
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+**Fecha**: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+**Nombre:** \hrulefill
+
+**Objetivos:** 
+
+- Evaluar la viabilidad embrionaria en semillas de frijol (*Phaseolus vulgaris*) o maíz (*Zea mays*) mediante la prueba bioquímica del Cloruro de 2,3,5-trifeniltetrazolio (TZ).
+- Evaluar el efecto de la desnaturalización térmica enzimática sobre la capacidad respiratoria de las semillas.
+- Cuantificar el Porcentaje de Viabilidad ($\%V$) mediante estadística descriptiva ($\bar{x} \pm s$) y representaciones gráficas.
+
+## 1. Materiales
+
+- Semillas de *Phaseolus vulgaris* (frijol) o *Zea mays* (maíz).
+<!-- - Solución de Cloruro de 2,3,5-trifeniltetrazolio (TZ) al 0.5% o 1.0% ($\text{pH } 6.5 - 7.0$).-->
+<!-- - Placa calefactora o Baño María ($80-90^\circ\text{C}$).-->
+- Kit de disección.
+<!-- - Cajas de Petri, papel filtro, pinzas de precisión.-->
+<!-- - Lupa estereoscópica o microscopio óptico.-->
+<!-- - Estufa de incubación ($35 - 40^\circ\text{C}$).-->
+<!-- - Vasos de precipitado, agua destilada y papel absorbente.-->
+- Guantes
+
+## 2. Aspectos Teóricos e Introducción
+
+La prueba de **Tetrazolio** determina la viabilidad de las semillas evaluando la actividad de las enzimas **deshidrogenasas** de la cadena respiratoria mitocondrial. En células vivas e imbibidas, estas enzimas transfieren protones ($H^+$) al Cloruro de 2,3,5-trifeniltetrazolio (incoloro y soluble), reduciéndolo a **Formazán** (insoluble y de color rojo intenso). La exposición a altas temperaturas causa la desnaturalización irreversible de la estructura terciaria/cuaternaria de las proteínas y enzimas, anulando la respiración celular y la reacción de tinción.
+
+Defina brevemente:
+
+• **Mecanismo Bioquímico de Reducción del Tetrazolio a Formazán:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+• **Efecto de la Temperatura sobre la Desnaturalización Enzimática:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+• **Evaluación Topográfica (Diferencia entre daño en el eje embrionario vs. cotiledones):**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 3. Procedimiento Experimental
+
+### A. Imbibición y Preacondicionamiento
+
+1. Coloque 60 semillas en agua a temperatura ambiente durante 18–24 horas antes de la práctica para activar el metabolismo celular y facilitar el corte.
+
+### B. Aplicación del Tratamiento Térmico
+
+1. **Grupo Tratamiento Térmico:** Sumerja 30 semillas imbibidas en un vaso de precipitado con agua caliente a $80-90^\circ\text{C}$ en baño María durante **15 minutos** para inducir la inactivación térmica de las deshidrogenasas.
+2. Retire las semillas del agua caliente y déjelas enfriar a temperatura ambiente en agua destilada.
+
+### C. Corte e Incubación en Solución de TZ
+
+1. Con el bisturí, realice un corte longitudinal sagital exponiendo claramente el eje embrionario y los cotiledones.
+2. Coloque la mitad de cada semilla que contenga el embrión en cajas de Petri cubiertas con 5 mL de solución de TZ al 1% e incube a $35^\circ\text{C}$ en oscuridad durante 60 minutos:
+   - **T1 (Control - Sin Calor):** 3 cajas de Petri de 10 semillas cada una.
+   - **T2 (Tratamiento Térmico - Con Calor):** 3 cajas de Petri de 10 semillas cada una.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.78]
+  % SEMILLA VIABLE (Control - Tinción Completa)
+  \begin{scope}[shift={(0,0)}]
+    \draw[thick, fill=red!70!black] (0,0) .. controls (-0.6,0.8) and (-0.6,1.8) .. (0,2.2)
+                                     .. controls (0.6,1.8) and (0.6,0.8) .. (0,0) -- cycle;
+    \draw[thick, fill=red!90!black] (-0.05,0.3) .. controls (-0.2,0.8) .. (-0.05,1.2) -- (0.05,1.2) .. controls (0.2,0.8) .. (0.05,0.3) -- cycle;
+    
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.4) {Control (Sin Calor)};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.7) {Tejido Vivo / Respirando};
+  \end{scope}
+
+  % SEMILLA PARCIAL / DAÑO MODERADO
+  \begin{scope}[shift={(3,0)}]
+    \draw[thick, fill=gray!20] (0,0) .. controls (-0.6,0.8) and (-0.6,1.8) .. (0,2.2)
+                                   .. controls (0.6,1.8) and (0.6,0.8) .. (0,0) -- cycle;
+    \fill[red!60!black] (-0.02,0.02) .. controls (-0.55,0.8) and (-0.55,1.4) .. (-0.02,1.8) -- cycle;
+    \draw[thick, fill=red!80!black] (-0.05,0.3) .. controls (-0.2,0.8) .. (-0.05,1.2) -- (0.05,1.2) .. controls (0.2,0.8) .. (0.05,0.3) -- cycle;
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.4) {Calor Parcial};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.7) {Desnaturalización Incompleta};
+  \end{scope}
+
+  % SEMILLA NO VIABLE (Tratamiento Térmico - Sin tinción)
+  \begin{scope}[shift={(6,0)}]
+    \draw[thick, fill=gray!15] (0,0) .. controls (-0.6,0.8) and (-0.6,1.8) .. (0,2.2)
+                                     .. controls (0.6,1.8) and (0.6,0.8) .. (0,0) -- cycle;
+    \draw[thick, fill=gray!30] (-0.05,0.3) .. controls (-0.2,0.8) .. (-0.05,1.2) -- (0.05,1.2) .. controls (0.2,0.8) .. (0.05,0.3) -- cycle;
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (0, -0.4) {Tratado con Calor};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (0, -0.7) {Enzimas Inactivadas};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+### D. Evaluación Topográfica
+
+1. Enjuague las semillas con agua destilada y examine bajo el estereoscopio.
+2. Clasifique cada semilla como **Viable** (tinción roja intensa en el eje embrionario) o **No Viable** (sin tinción o tejido blanquecino/necrosado por efecto térmico).
+3. Calcule el porcentaje de viabilidad ($\%V$) por réplica (caja de Petri) y determine el promedio ($\bar{x}$) y la desviación estándar ($s$) para cada tratamiento: 
+
+$$\%V = \frac{\text{Semillas Viables}}{\text{Total Semillas}} \times 100$$
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+
+## 4. Registro de Resultados
+
+### Tabla 1. Porcentaje de Viabilidad (%V) por Tratamiento
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|p{2em}|p{2em}|p{2em}|p{2em}|p{2em}}
+\hline
+ &  & \multicolumn{3}{c|}{\textbf{Réplicas}} & \textbf{Prom} & \textbf{DE} \\
+\textbf{Tratamiento} & \textbf{Categoría} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{$\bar{x}$} & \textbf{$s$} \\
+\hline
+1. Control & Viables (\%) & & & & & \\[1ex]
+\cline{2-7}
+ & No Viables (\%) & & & & & \\[1ex]
+\hline
+2. Calor & Viables (\%) & & & & & \\[1ex]
+\cline{2-7}
+ & No Viables (\%) & & & & & \\[1ex]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados del porcentaje de semillas viables según tratamiento:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+### Tabla 2. Descripción Topográfica de Patrones de Tinción y Coloración
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Observación Microscópica y Localización del Formazán} \\
+\hline
+1. Control (Sin Calor) & \\[40pt]
+\hline
+2. Tratamiento Térmico & \\[40pt]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de la observación microscópica y localización del Formazán:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 5. Análisis Gráfico
+
+Represente la viabilidad de las semillas utilizando puntos (promedio) y barras de error (desviación estándar) por tratamiento.
+
+### Gráfica 1: Porcentaje de Viabilidad (%V) por Tratamiento
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % Grid ggplot2
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X
+  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Calor}};
+  \node[below=12pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[left, font=\tiny] at (0,0) {0};
+  \node[left, font=\tiny] at (0,1) {25};
+  \node[left, font=\tiny] at (0,2) {50};
+  \node[left, font=\tiny] at (0,3) {75};
+  \node[left, font=\tiny] at (0,4) {100};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Viabilidad Seminal (\%)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados gráficos:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+<!-- ### Gráfica 2: Proporción Comparativa de Tinción por Criterio Topográfico
+*Morfología: `ggplot(data, aes(x=Tratamiento, y=Proporcion, fill=Categoria)) + geom_col(position="stack")`*
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  \draw[gray!20, step=0.5cm] (0,0) grid (6.5,4.0);
+  \draw[gray!50, step=1cm] (0,0) grid (6.5,4.0);
+  \draw[thick] (0,0) rectangle (6.5,4.0);
+  
+  \node[below, font=\small] at (2.0,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.5,0) {\textbf{Trat. Térmico}};
+  \node[below=11pt, font=\small] at (3.25,0) {\textbf{Tratamiento}};
+  
+  \node[left, font=\tiny] at (0,0) {0.0};
+  \node[left, font=\tiny] at (0,1) {0.25};
+  \node[left, font=\tiny] at (0,2) {0.50};
+  \node[left, font=\tiny] at (0,3) {0.75};
+  \node[left, font=\tiny] at (0,4) {1.00};
+  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Proporción de Semillas}};
+\end{tikzpicture}
+\end{center}
+--> 
+
+## 6. Actividades Complementarias
+
+1. Explique a nivel molecular por qué el choque térmico ($80-90^\circ\text{C}$) impide la reducción del Cloruro de Tetrazolio a Formazán.
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+2. ¿Qué diferencia existiría en el patrón de tinción si las semillas se someten a un calor moderado ($50^\circ\text{C}$) en lugar de un calor extremo ($90^\circ\text{C}$)?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+3. ¿Por qué la prueba de Tetrazolio permite diagnosticar la muerte celular antes de que se observen cambios morfológicos externos en la semilla?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 7. Conclusión
+
+Interprete el impacto de la desnaturalización térmica sobre la actividad enzimática respiratoria y analice la confiabilidad de la prueba de TZ para diferenciar semillas viables de no viables:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 8. Bibliografía
+
+- Azcón-Bieto, J., & Talón, M. (2008). *Fundamentos de Fisiología Vegetal* (2.ª ed.). McGraw-Hill.
+- Franca-Neto, J. B., & Krzyzanowski, F. C. (2019). *Tetrazolium test for seed viability and vigor*. Embrapa Soja.
+- ISTA. (2020). *International Rules for Seed Testing*. International Seed Testing Association.
+- Taiz, L., & Zeiger, E. (2002). *Plant Physiology* (3rd ed.). Sinauer Associates.

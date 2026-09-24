@@ -187,7 +187,7 @@ Determine para cada planta la longitud de raíz y vástago (cm), el peso fresco 
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{c|c|c|c|c|p{7em}}
 \hline
-\textbf{Maceta} & \textbf{Sem.} & \textbf{L. Raíz (cm)} & \textbf{P.F. Raíz (g)} & \textbf{P.F. Vást. (g)} & \textbf{Síntomas / Observaciones} \\
+\textbf{Maceta} & \textbf{Rép.} & \textbf{L. Raíz (cm)} & \textbf{P.F. Raíz (g)} & \textbf{P.F. Vást. (g)} & \textbf{Síntomas / Observaciones} \\
 \hline
  & A & & & & \\
 M1 (Nut) & B & & & & \\
