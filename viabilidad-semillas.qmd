@@ -1,5 +1,5 @@
 ---
-title: "Práctica – Viabilidad de Semillas"
+title: "Práctica 4 – Viabilidad de Semillas"
 lang: es
 format:
   pdf:
@@ -53,7 +53,7 @@ La prueba de **Tetrazolio** determina la viabilidad de las semillas evaluando la
 
 Defina brevemente:
 
-• **Mecanismo Bioquímico de Reducción del Tetrazolio a Formazán:**
+1. **Mecanismo Bioquímico de Reducción del Tetrazolio a Formazán:**
 
 \hrulefill
 
@@ -67,7 +67,7 @@ Defina brevemente:
 
 \hrulefill
 
-• **Efecto de la Temperatura sobre la Desnaturalización Enzimática:**
+2. **Efecto de la Temperatura sobre la Desnaturalización Enzimática:**
 
 \hrulefill
 
@@ -81,7 +81,7 @@ Defina brevemente:
 
 \hrulefill
 
-• **Evaluación Topográfica (Diferencia entre daño en el eje embrionario vs. cotiledones):**
+3. **Evaluación Topográfica (Diferencia entre daño en el eje embrionario vs. cotiledones):**
 
 \hrulefill
 
@@ -160,22 +160,28 @@ $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (
 
 ## 4. Registro de Resultados
 
+Registre los pocentajes de viabilidad de las semillas por réplica (caja de Petri) y los estadísticos descriptivos por tratamiento.
+
 ### Tabla 1. Porcentaje de Viabilidad (%V) por Tratamiento
+
+**V (%)**: Porcentaje de semillas Viables. 
+
+**NV (%)**: Porcentaje de semillas No Viables.
 
 \begin{center}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{l|l|p{2em}|p{2em}|p{2em}|p{2em}|p{2em}}
 \hline
  &  & \multicolumn{3}{c|}{\textbf{Réplicas}} & \textbf{Prom} & \textbf{DE} \\
-\textbf{Tratamiento} & \textbf{Categoría} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{$\bar{x}$} & \textbf{$s$} \\
+\textbf{Tratamiento} & \textbf{Semillas} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{$\bar{x}$} & \textbf{$s$} \\
 \hline
-1. Control & Viables (\%) & & & & & \\[1ex]
+1. Control & V (\%) & & & & & \\[1ex]
 \cline{2-7}
- & No Viables (\%) & & & & & \\[1ex]
+ & NV (\%) & & & & & \\[1ex]
 \hline
-2. Calor & Viables (\%) & & & & & \\[1ex]
+2. Calor & V (\%) & & & & & \\[1ex]
 \cline{2-7}
- & No Viables (\%) & & & & & \\[1ex]
+ & NV (\%) & & & & & \\[1ex]
 \hline
 \end{tabular}%
 }
@@ -193,7 +199,11 @@ Interprete los resultados del porcentaje de semillas viables según tratamiento:
 
 \hrulefill
 
+\hrulefill
+
 ### Tabla 2. Descripción Topográfica de Patrones de Tinción y Coloración
+
+A partir de las semillas observadas para el cálculo del porcentaje de viabilidad, describa en términos generales el patrón de tinción y coloración observados en las semillas para cada tratamiento.
 
 \begin{center}
 \resizebox{\linewidth}{!}{%
@@ -201,9 +211,9 @@ Interprete los resultados del porcentaje de semillas viables según tratamiento:
 \hline
 \textbf{Tratamiento} & \textbf{Observación Microscópica y Localización del Formazán} \\
 \hline
-1. Control (Sin Calor) & \\[40pt]
+1. Control & \\[60pt]
 \hline
-2. Tratamiento Térmico & \\[40pt]
+2. Calor & \\[60pt]
 \hline
 \end{tabular}%
 }
@@ -221,35 +231,41 @@ Interprete los resultados de la observación microscópica y localización del F
 
 \hrulefill
 
+\hrulefill
+
 ## 5. Análisis Gráfico
 
-Represente la viabilidad de las semillas utilizando puntos (promedio) y barras de error (desviación estándar) por tratamiento.
+Represente la viabilidad de las semillas utilizando columnas (promedio) y barras de error (desviación estándar) por tratamiento.
 
 ### Gráfica 1: Porcentaje de Viabilidad (%V) por Tratamiento
 
 \begin{center}
-\begin{tikzpicture}[scale=0.85]
+\begin{tikzpicture}[scale=1.05]
   % Grid ggplot2
   \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
   \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
   \draw[thick] (0,0) rectangle (7,5);
   
   % Eje X
-  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
-  \node[below, font=\small] at (4.9,0) {\textbf{Calor}};
+  \node[below, font=\small] at (2.1,0) {\textit{Control}};
+  \node[below, font=\small] at (4.9,0) {\textit{Calor}};
   \node[below=12pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
   
   % Eje Y
   \node[left, font=\tiny] at (0,0) {0};
-  \node[left, font=\tiny] at (0,1) {25};
-  \node[left, font=\tiny] at (0,2) {50};
-  \node[left, font=\tiny] at (0,3) {75};
-  \node[left, font=\tiny] at (0,4) {100};
-  \node[rotate=90, above=10pt, font=\small] at (0,2.0) {\textbf{Viabilidad Seminal (\%)}};
+  \node[left, font=\tiny] at (0,1.05) {25};
+  \node[left, font=\tiny] at (0,2.1) {50};
+  \node[left, font=\tiny] at (0,3.15) {75};
+  \node[left, font=\tiny] at (0,4.2) {100};
+  \node[rotate=90, above=10pt, font=\small] at (0.0,2.5) {\textbf{Viabilidad (\%)}};
 \end{tikzpicture}
 \end{center}
 
-Interprete los resultados gráficos:
+Interprete los resultados representados en las gráficas:
+
+\hrulefill
+
+\hrulefill
 
 \hrulefill
 
@@ -298,6 +314,8 @@ Interprete los resultados gráficos:
 
 \hrulefill
 
+\hrulefill
+
 2. ¿Qué diferencia existiría en el patrón de tinción si las semillas se someten a un calor moderado ($50^\circ\text{C}$) en lugar de un calor extremo ($90^\circ\text{C}$)?
 
 \hrulefill
@@ -312,7 +330,11 @@ Interprete los resultados gráficos:
 
 \hrulefill
 
+\hrulefill
+
 3. ¿Por qué la prueba de Tetrazolio permite diagnosticar la muerte celular antes de que se observen cambios morfológicos externos en la semilla?
+
+\hrulefill
 
 \hrulefill
 
