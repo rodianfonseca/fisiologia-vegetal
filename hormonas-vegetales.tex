@@ -1,0 +1,650 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  10pt,
+  letterpaper,
+  twocolumn]{article}
+\usepackage{xcolor}
+\usepackage[top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Fira Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Fira Sans}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\renewcommand{\arraystretch}{1.4}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Práctica 7 -- Fisiología de las Fitohormonas},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\vspace{-1.5em}{\Huge \textbf{Práctica 7 -- Fisiología de las
+Fitohormonas}}\vspace{-1.5em}}
+\date{}
+\begin{document}
+\maketitle
+
+
+\setstretch{1.2}
+\textbf{Fecha}: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+\textbf{Nombre:} \hrulefill
+
+\textbf{Objetivos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Evaluar el efecto biofisiológico del etileno emitido por una fuente
+  natural (manzana roja madura) sobre la germinación y el crecimiento
+  inicial de plántulas de lenteja o frijol.
+\item
+  Identificar la caracterización morfológica de la \textbf{``triple
+  respuesta''} al etileno en dicotiledóneas (inhibición de la elongación
+  caulinar, engrosamiento del hipocótilo y crecimiento
+  horizontal/exageración del gancho apical).
+\end{itemize}
+
+\subsection{1. Materiales}\label{materiales}
+
+\begin{itemize}
+\tightlist
+\item
+  60 semillas de lenteja (\emph{Lens culinaris}) o frijol
+  (\emph{Phaseolus vulgaris}).
+\item
+  6 vasos plásticos o macetas pequeñas con sustrato húmedo (algodón o
+  vermiculita).
+\item
+  2 manzanas rojas maduras.
+\item
+  2 bolsas plásticas negras de basura (grandes y herméticas).
+\item
+  Regla graduada milimetrada y pie de rey / calibrador.
+\item
+  Marcador permanente y cinta de enmascarar.
+\item
+  Agua destilada o corriente.
+\end{itemize}
+
+\subsection{2. Aspectos Teóricos e
+Introducción}\label{aspectos-teuxf3ricos-e-introducciuxf3n}
+
+El \textbf{etileno} (\(C_2H_4\)) es una fitohormona gaseosa única que
+regula procesos como la maduración de frutos climatéricos, la
+senescencia, la abscisión foliar y las respuestas a estrés mecánico. En
+plántulas etioladas de dicotiledóneas, la acumulación de etileno
+desencadena la clásica \textbf{triple respuesta}, una adaptación
+morfológica que permite a la plántula esquivar obstáculos subterráneos
+durante la emergencia.
+
+Defina brevemente:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Mecanismo Fisiológico y Síntomas de la Triple Respuesta al
+  Etileno:}
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Frutos Climatéricos vs.~No Climatéricos y Emisión de Etileno:}
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Evolución del Gancho Apical y Protección del Meristemo:}
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{3. Procedimiento
+Experimental}\label{procedimiento-experimental}
+
+\subsubsection{A. Siembra e Imbibición de
+Semillas}\label{a.-siembra-e-imbibiciuxf3n-de-semillas}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Seleccione semillas homogéneas de lenteja o frijol y distribúyalas en
+  6 vasos o macetas pequeñas (10 semillas por maceta) sobre sustrato
+  humedecido uniformemente.
+\end{enumerate}
+
+\subsubsection{B. Montaje de los Microinvernaderos
+Oscuros}\label{b.-montaje-de-los-microinvernaderos-oscuros}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Tratamiento 1 (Control - Sin Etileno):} Coloque 3 macetas
+  (Réplicas A, B, C) dentro de la primera bolsa negra de basura. Selle
+  la bolsa herméticamente dejando aire retenido en su interior.
+\item
+  \textbf{Tratamiento 2 (Etileno - Con Manzana Madura):} Coloque las 3
+  macetas restantes (Réplicas A, B, C) dentro de la segunda bolsa negra
+  de basura e introduzca 2 manzanas rojas maduras al lado de los vasos.
+  Selle la bolsa herméticamente reteniendo aire.
+\item
+  Mantenga ambos sistemas en un lugar con temperatura constante durante
+  7 días en oscuridad ininterrumpida.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % TRATAMIENTO 1: Control (Sin Manzana)
+  \begin{scope}[shift={(0,0)}]
+    % Bolsa negra contenedor
+    \draw[thick, fill=gray!85, rounded corners=8pt] (-0.2,-0.2) rectangle (2.2, 2.3);
+    \node[font=\fontsize{5}{6}\bfseries\selectfont, white] at (1.0, 2.1) {Control};
+    
+    % Macetas (n=3)
+    \foreach \x in {0.1, 0.75, 1.4} {
+      \draw[thick, fill=brown!40] (\x,0.1) -- (\x+0.1, 0.7) -- (\x+0.5, 0.7) -- (\x+0.6, 0.1) -- cycle;
+      % Plántulas etioladas rectas
+      \draw[line width=1.2pt, green!60!black] (\x+0.3,0.7) -- (\x+0.3, 1.6);
+      \fill[green!50!black] (\x+0.28,1.6) circle (2pt);
+    }
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (1.0, -0.4) {T1: Control};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (1.0, -0.7) {Sin Manzana ($n=3$)};
+  \end{scope}
+
+  % TRATAMIENTO 2: Etileno (Bolsa Negra con Manzana)
+  \begin{scope}[shift={(3.4,0)}]
+    % Bolsa negra contenedor
+    \draw[thick, fill=gray!85, rounded corners=8pt] (-0.2,-0.2) rectangle (2.6, 2.3);
+    \node[font=\fontsize{5}{6}\bfseries\selectfont, white] at (1.2, 2.1) {Etileno};
+    
+    % Macetas (n=3)
+    \foreach \x in {0.0, 0.65, 1.3} {
+      \draw[thick, fill=brown!40] (\x,0.1) -- (\x+0.1, 0.7) -- (\x+0.5, 0.7) -- (\x+0.6, 0.1) -- cycle;
+      % Plántulas con Triple Respuesta (cortas, gruesas y con gancho)
+      \draw[line width=2.2pt, green!50!black] (\x+0.3,0.7) .. controls (\x+0.3, 1.1) .. (\x+0.15, 1.15);
+      \fill[green!50!black] (\x+0.15,1.15) circle (2.2pt);
+    }
+    
+    % Manzana roja (Fuente de etileno)
+    \fill[red!80!black] (2.15, 0.4) circle (6pt);
+    \draw[green!30!black, line width=1pt] (2.15, 0.6) -- (2.15, 0.7);
+    \node[font=\fontsize{4}{5}\selectfont, white] at (2.15, 0.38) {Etileno};
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (1.2, -0.4) {T2: Etileno};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (1.2, -0.7) {Con Manzana Roja ($n=3$)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{C. Evaluación Cuantitativa (Día
+7)}\label{c.-evaluaciuxf3n-cuantitativa-duxeda-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Abra con cuidado las bolsas al cabo de 7 días.
+\item
+  Registre el \textbf{Porcentaje de Germinación} (\(\%G\)) en cada
+  maceta.
+\item
+  En 5 plántulas seleccionadas al azar por maceta, mida con la regla la
+  \textbf{longitud del vástago/hipocótilo} (\(\text{cm}\)) y con el pie
+  de rey el \textbf{grosor del hipocótilo} (\(\text{mm}\)).
+\end{enumerate}
+
+\subsection{4. Registro de Resultados}\label{registro-de-resultados}
+
+En la siguiente tabla registre los resultados observados al séptimo día
+del porcentaje de germinación (Germ. \(\%\)), longitud del vástago (L.
+Vast. mm) y grosor del hipocótilo (Gros. Hip. mm).
+
+Calcule el promedio (\(\bar{x}\)) y la desviación estándar (\(s\)) para
+cada variable de respuesta:
+
+\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}\]
+
+\subsubsection{Tabla 1. Variables Morfométricas de Germinación y
+Desarrollo al Día
+7}\label{tabla-1.-variables-morfomuxe9tricas-de-germinaciuxf3n-y-desarrollo-al-duxeda-7}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{2.3cm}c|c|c|c}
+\hline
+\multicolumn{1}{p{2.3cm}|}{\textbf{Tratamiento}} & \textbf{Rép.} & \textbf{Germ. ($\%$)} & \textbf{L. Vást. (mm)} & \textbf{Gros. Hip. (mm)} \\ \hline
+\multicolumn{1}{p{2.3cm}|}{\multirow{3}{=}{1. Control\newline (Sin manzana)}} & A &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & B &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & C &  &  &  \\ \hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$)}} &  &  &  \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$)}} &  &  &  \\ \hline\hline
+\multicolumn{1}{p{2.3cm}|}{\multirow{3}{=}{2. Etileno\newline (Con manzana)}} & A &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & B &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & C &  &  &  \\ \hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$)}} &  &  & \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$)}} &  &  & \\ \hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados del porcentaje de germinación, longitud del
+vástago y grosor del hipocótilo:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsubsection{Tabla 2. Observaciones Cualitativas del Desarrollo
+Morfológico}\label{tabla-2.-observaciones-cualitativas-del-desarrollo-morfoluxf3gico}
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Curvatura del Gancho Apical, Orientación de Crecimiento y Coloración} \\
+\hline
+\shortstack[l]{\\1. Control\\(Sin manzana)}& \\[10ex]
+\hline
+\shortstack[l]{\\2. Etileno\\(Con Manzana)} & \\[10ex]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de las observaciones cualitativas del
+desarrollo morfológico:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{5. Análisis Gráfico}\label{anuxe1lisis-gruxe1fico}
+
+Represente la longitud del vástago y el grosor del hipocótilo utilizando
+diagramas de cajas y bigotes (boxplots) por tratamiento.
+
+\subsubsection{Gráfica 1: Longitud del Vástago
+(mm)}\label{gruxe1fica-1-longitud-del-vuxe1stago-mm}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+  % Grid ggplot2
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X
+  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Etileno}};
+  \node[below=11pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.5) {\textbf{Longitud del Vástago (mm)}};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Gráfica 2: Grosor del Hipocótilo
+(mm)}\label{gruxe1fica-2-grosor-del-hipocuxf3tilo-mm}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+  % Grid ggplot2
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X
+  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Etileno}};
+  \node[below=11pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.5) {\textbf{Grosor del Hipocótilo (mm)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados representados en las gráficas:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{6. Actividades
+Complementarias}\label{actividades-complementarias}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Explique el papel bioquímico del precursor
+  1-aminociclopropano-1-carboxílico (\textbf{ACC}) y de la \textbf{ACC
+  oxidasa} en la vía biosintética del etileno en las manzanas.
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Cuál es el significado ecológico adaptativo del engrosamiento del
+  hipocótilo y la curvatura del gancho apical cuando una plántula
+  germina bajo un suelo compactado?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ¿Por qué es fundamental emplear bolsas negras herméticas en este
+  experimento tanto para el control como para el tratamiento con
+  etileno?
+\end{enumerate}
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{7. Conclusión}\label{conclusiuxf3n}
+
+Compare los promedios obtenidos entre tratamientos e interprete la
+presencia o ausencia de la triple respuesta al etileno en las plántulas:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\subsection{8. Bibliografía}\label{bibliografuxeda}
+
+\begin{itemize}
+\tightlist
+\item
+  Abeles, F. B., Morgan, P. W., \& Saltveit, M. E. (1992).
+  \emph{Ethylene in Plant Biology} (2nd ed.). Academic Press.
+\item
+  Azcón-Bieto, J., \& Talón, M. (2008). \emph{Fundamentos de Fisiología
+  Vegetal} (2.ª ed.). McGraw-Hill.
+\item
+  Taiz, L., \& Zeiger, E. (2002). \emph{Plant Physiology} (3rd ed.).
+  Sinauer Associates.
+\end{itemize}
+
+
+
+
+\end{document}

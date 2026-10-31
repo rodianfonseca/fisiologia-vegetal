@@ -1,0 +1,352 @@
+---
+title: "Práctica 7 – Fisiología de las Fitohormonas"
+lang: es
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    classoption: [twocolumn]
+    fontsize: 10pt
+    geometry: top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm
+    mainfont: "Fira Sans"
+    linestretch: 1.2
+    papersize: letter
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header:
+      text: |
+        \usepackage{tikz}
+        \usepackage{graphicx}
+        \usepackage{amsmath}
+        \usepackage{multirow}
+        \renewcommand{\arraystretch}{1.4}
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+**Fecha**: \hrulefill \hfill \textbf{Grupo}: \hrulefill
+
+**Nombre:** \hrulefill
+
+**Objetivos:** 
+
+- Evaluar el efecto biofisiológico del etileno emitido por una fuente natural (manzana roja madura) sobre la germinación y el crecimiento inicial de plántulas de lenteja o frijol.
+- Identificar la caracterización morfológica de la **"triple respuesta"** al etileno en dicotiledóneas (inhibición de la elongación caulinar, engrosamiento del hipocótilo y crecimiento horizontal/exageración del gancho apical).
+
+
+## 1. Materiales
+
+- 60 semillas de lenteja (*Lens culinaris*) o frijol (*Phaseolus vulgaris*).
+- 6 vasos plásticos o macetas pequeñas con sustrato húmedo (algodón o vermiculita).
+- 2 manzanas rojas maduras.
+- 2 bolsas plásticas negras de basura (grandes y herméticas).
+- Regla graduada milimetrada y pie de rey / calibrador.
+- Marcador permanente y cinta de enmascarar.
+- Agua destilada o corriente.
+
+## 2. Aspectos Teóricos e Introducción
+
+El **etileno** ($C_2H_4$) es una fitohormona gaseosa única que regula procesos como la maduración de frutos climatéricos, la senescencia, la abscisión foliar y las respuestas a estrés mecánico. En plántulas etioladas de dicotiledóneas, la acumulación de etileno desencadena la clásica **triple respuesta**, una adaptación morfológica que permite a la plántula esquivar obstáculos subterráneos durante la emergencia.
+
+Defina brevemente:
+
+1. **Mecanismo Fisiológico y Síntomas de la Triple Respuesta al Etileno:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+2. **Frutos Climatéricos vs. No Climatéricos y Emisión de Etileno:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+3. **Evolución del Gancho Apical y Protección del Meristemo:**
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 3. Procedimiento Experimental
+
+### A. Siembra e Imbibición de Semillas
+
+1. Seleccione semillas homogéneas de lenteja o frijol y distribúyalas en 6 vasos o macetas pequeñas (10 semillas por maceta) sobre sustrato humedecido uniformemente.
+
+### B. Montaje de los Microinvernaderos Oscuros
+
+1. **Tratamiento 1 (Control - Sin Etileno):** Coloque 3 macetas (Réplicas A, B, C) dentro de la primera bolsa negra de basura. Selle la bolsa herméticamente dejando aire retenido en su interior.
+2. **Tratamiento 2 (Etileno - Con Manzana Madura):** Coloque las 3 macetas restantes (Réplicas A, B, C) dentro de la segunda bolsa negra de basura e introduzca 2 manzanas rojas maduras al lado de los vasos. Selle la bolsa herméticamente reteniendo aire.
+3. Mantenga ambos sistemas en un lugar con temperatura constante durante 7 días en oscuridad ininterrumpida.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  % TRATAMIENTO 1: Control (Sin Manzana)
+  \begin{scope}[shift={(0,0)}]
+    % Bolsa negra contenedor
+    \draw[thick, fill=gray!85, rounded corners=8pt] (-0.2,-0.2) rectangle (2.2, 2.3);
+    \node[font=\fontsize{5}{6}\bfseries\selectfont, white] at (1.0, 2.1) {Control};
+    
+    % Macetas (n=3)
+    \foreach \x in {0.1, 0.75, 1.4} {
+      \draw[thick, fill=brown!40] (\x,0.1) -- (\x+0.1, 0.7) -- (\x+0.5, 0.7) -- (\x+0.6, 0.1) -- cycle;
+      % Plántulas etioladas rectas
+      \draw[line width=1.2pt, green!60!black] (\x+0.3,0.7) -- (\x+0.3, 1.6);
+      \fill[green!50!black] (\x+0.28,1.6) circle (2pt);
+    }
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (1.0, -0.4) {T1: Control};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (1.0, -0.7) {Sin Manzana ($n=3$)};
+  \end{scope}
+
+  % TRATAMIENTO 2: Etileno (Bolsa Negra con Manzana)
+  \begin{scope}[shift={(3.4,0)}]
+    % Bolsa negra contenedor
+    \draw[thick, fill=gray!85, rounded corners=8pt] (-0.2,-0.2) rectangle (2.6, 2.3);
+    \node[font=\fontsize{5}{6}\bfseries\selectfont, white] at (1.2, 2.1) {Etileno};
+    
+    % Macetas (n=3)
+    \foreach \x in {0.0, 0.65, 1.3} {
+      \draw[thick, fill=brown!40] (\x,0.1) -- (\x+0.1, 0.7) -- (\x+0.5, 0.7) -- (\x+0.6, 0.1) -- cycle;
+      % Plántulas con Triple Respuesta (cortas, gruesas y con gancho)
+      \draw[line width=2.2pt, green!50!black] (\x+0.3,0.7) .. controls (\x+0.3, 1.1) .. (\x+0.15, 1.15);
+      \fill[green!50!black] (\x+0.15,1.15) circle (2.2pt);
+    }
+    
+    % Manzana roja (Fuente de etileno)
+    \fill[red!80!black] (2.15, 0.4) circle (6pt);
+    \draw[green!30!black, line width=1pt] (2.15, 0.6) -- (2.15, 0.7);
+    \node[font=\fontsize{4}{5}\selectfont, white] at (2.15, 0.38) {Etileno};
+
+    \node[font=\fontsize{6}{7}\bfseries\selectfont, align=center] at (1.2, -0.4) {T2: Etileno};
+    \node[font=\fontsize{5}{6}\selectfont, gray!50!black, align=center] at (1.2, -0.7) {Con Manzana Roja ($n=3$)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+### C. Evaluación Cuantitativa (Día 7)
+
+1. Abra con cuidado las bolsas al cabo de 7 días.
+2. Registre el **Porcentaje de Germinación** ($\%G$) en cada maceta.
+3. En 5 plántulas seleccionadas al azar por maceta, mida con la regla la **longitud del vástago/hipocótilo** ($\text{cm}$) y con el pie de rey el **grosor del hipocótilo** ($\text{mm}$).
+
+## 4. Registro de Resultados
+
+En la siguiente tabla registre los resultados observados al séptimo día del porcentaje de germinación (Germ. $\%$), longitud del vástago (L. Vast. mm) y grosor del hipocótilo (Gros. Hip. mm).
+
+Calcule el promedio ($\bar{x}$) y la desviación estándar ($s$) para cada variable de respuesta:
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \qquad s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+
+### Tabla 1. Variables Morfométricas de Germinación y Desarrollo al Día 7
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{2.3cm}c|c|c|c}
+\hline
+\multicolumn{1}{p{2.3cm}|}{\textbf{Tratamiento}} & \textbf{Rép.} & \textbf{Germ. ($\%$)} & \textbf{L. Vást. (mm)} & \textbf{Gros. Hip. (mm)} \\ \hline
+\multicolumn{1}{p{2.3cm}|}{\multirow{3}{=}{1. Control\newline (Sin manzana)}} & A &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & B &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & C &  &  &  \\ \hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$)}} &  &  &  \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$)}} &  &  &  \\ \hline\hline
+\multicolumn{1}{p{2.3cm}|}{\multirow{3}{=}{2. Etileno\newline (Con manzana)}} & A &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & B &  &  &  \\
+\multicolumn{1}{p{2.3cm}|}{} & C &  &  &  \\ \hline
+\multicolumn{2}{c|}{\textbf{Promedio ($\bar{x}$)}} &  &  & \\
+\multicolumn{2}{c|}{\textbf{Desv. Est. ($s$)}} &  &  & \\ \hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados del porcentaje de germinación, longitud del vástago y grosor del hipocótilo:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+
+### Tabla 2. Observaciones Cualitativas del Desarrollo Morfológico
+
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|p{14em}}
+\hline
+\textbf{Tratamiento} & \textbf{Curvatura del Gancho Apical, Orientación de Crecimiento y Coloración} \\
+\hline
+\shortstack[l]{\\1. Control\\(Sin manzana)}& \\[10ex]
+\hline
+\shortstack[l]{\\2. Etileno\\(Con Manzana)} & \\[10ex]
+\hline
+\end{tabular}%
+}
+\end{center}
+
+Interprete los resultados de las observaciones cualitativas del desarrollo morfológico:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 5. Análisis Gráfico
+
+Represente la longitud del vástago y el grosor del hipocótilo utilizando diagramas de cajas y bigotes (boxplots) por tratamiento.
+
+### Gráfica 1: Longitud del Vástago (mm)
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+  % Grid ggplot2
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X
+  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Etileno}};
+  \node[below=11pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.5) {\textbf{Longitud del Vástago (mm)}};
+\end{tikzpicture}
+\end{center}
+
+### Gráfica 2: Grosor del Hipocótilo (mm)
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+  % Grid ggplot2
+  \draw[gray!20, step=0.7cm] (0,0) grid (7,5);
+  \draw[gray!50, step=1.4cm] (0,0) grid (7,5);
+  \draw[thick] (0,0) rectangle (7,5);
+  
+  % Eje X
+  \node[below, font=\small] at (2.1,0) {\textbf{Control}};
+  \node[below, font=\small] at (4.9,0) {\textbf{Etileno}};
+  \node[below=11pt, font=\small] at (3.25,0) {\textbf{Tratamiento Experimental}};
+  
+  % Eje Y
+  \node[rotate=90, above=10pt, font=\small] at (0,2.5) {\textbf{Grosor del Hipocótilo (mm)}};
+\end{tikzpicture}
+\end{center}
+
+Interprete los resultados representados en las gráficas:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 6. Actividades Complementarias
+
+1. Explique el papel bioquímico del precursor 1-aminociclopropano-1-carboxílico (**ACC**) y de la **ACC oxidasa** en la vía biosintética del etileno en las manzanas.
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+2. ¿Cuál es el significado ecológico adaptativo del engrosamiento del hipocótilo y la curvatura del gancho apical cuando una plántula germina bajo un suelo compactado?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+3. ¿Por qué es fundamental emplear bolsas negras herméticas en este experimento tanto para el control como para el tratamiento con etileno?
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 7. Conclusión
+
+Compare los promedios obtenidos entre tratamientos e interprete la presencia o ausencia de la triple respuesta al etileno en las plántulas:
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+\hrulefill
+
+## 8. Bibliografía
+
+- Abeles, F. B., Morgan, P. W., & Saltveit, M. E. (1992). *Ethylene in Plant Biology* (2nd ed.). Academic Press.
+- Azcón-Bieto, J., & Talón, M. (2008). *Fundamentos de Fisiología Vegetal* (2.ª ed.). McGraw-Hill.
+- Taiz, L., & Zeiger, E. (2002). *Plant Physiology* (3rd ed.). Sinauer Associates.
